@@ -207,6 +207,28 @@
             color: #9ca3af;
             margin-top: 10px;
         }
+        .cover-placeholder {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            border-radius: 14px;
+            background: #020617;
+            border: 1px solid #4b5563;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #9ca3af;
+            /* 이미지가 튀어나가지 않게 */
+            overflow: hidden;
+        }
+
+        .cover-placeholder .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;   /* 잘리는 대신 꽉 차게 */
+            display: block;
+        }
+
 
         @media (max-width: 720px) {
             .info-section {
@@ -228,7 +250,7 @@
         <!-- 섹션 1: 작품 기본 정보 -->
         <section class="info-section">
             <div class="cover-placeholder">
-                여기 웹툰 표지 이미지 배치 예정
+                <img src="cover-main.jpg" alt="전지적 독자 시점 표지" class="cover-image">
             </div>
             <div>
                 <h2>작품 기본 정보</h2>
