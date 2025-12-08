@@ -228,6 +228,62 @@
             object-fit: cover;   /* 잘리는 대신 꽉 차게 */
             display: block;
         }
+        /* ==============================
+        작품 분위기 / 핵심 테마
+        ============================== */
+
+        .theme-section {
+        margin-top: 120px;
+        }
+
+        .theme-section h2 {
+        color: #ffb300;
+        font-size: 32px;
+        margin-bottom: 10px;
+        }
+
+        .section-desc {
+        color: #cfd8dc;
+        margin-bottom: 40px;
+        }
+
+        .theme-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        }
+
+        .theme-card {
+        background: rgba(15, 23, 42, 0.85);
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .theme-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .theme-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        }
+
+        .theme-card h3 {
+        color: #ffcc80;
+        font-size: 20px;
+        margin-bottom: 10px;
+        }
+
+        .theme-card p {
+        color: #eceff1;
+        line-height: 1.6;
+        }
 
 
         @media (max-width: 720px) {
@@ -271,37 +327,54 @@
                     모든 전개를 무기로 삼아 새로운 세계에 개입하기 시작한다.
                 </p>
             </div>
+            
         </section>
 
-        <!-- 섹션 2: 작품 분위기 / 테마 -->
-        <section>
-            <h2>작품 분위기 · 핵심 테마</h2>
-            <p>전지적 독자 시점이 주는 느낌을 세 가지 키워드로 나누어 정리했다.</p>
-            <div class="mood-grid">
-                <div class="mood-card">
-                    <div class="mood-title">① 재난 속에서 살아남는 사람들</div>
-                    <div class="mood-text">
-                        평범한 도시가 ‘시나리오’라는 규칙에 따라 무너지고 다시 세워진다.
-                        사람들은 생존을 위해 서로를 의심하면서도, 동시에 연대와 선택의 순간을 맞이한다.
-                    </div>
-                </div>
-                <div class="mood-card">
-                    <div class="mood-title">② 독자가 주인공이 된 메타 세계</div>
-                    <div class="mood-text">
-                        김독자는 “이 세계를 이미 읽어 본 사람”이라는 점에서 누구보다도 특별하다.
-                        독자와 등장인물, 작가와 세계의 경계가 계속 뒤섞이는 독특한 메타 구조가 특징이다.
-                    </div>
-                </div>
-                <div class="mood-card">
-                    <div class="mood-title">③ 긴장감 있는 연출과 액션</div>
-                    <div class="mood-text">
-                        제한 시간, 선택지, 조건부 보상과 같은 게임적인 장치를 활용해
-                        매 장면이 클라이맥스처럼 느껴지도록 연출한다. 전투 장면뿐 아니라
-                        인물들의 감정 변화도 크게 대비되며 긴장감을 유지한다.
-                    </div>
-                </div>
+        <!-- 섹션 2 : 작품 분위기 / 핵심 테마 -->
+        <section class="theme-section">
+        <h2>작품 분위기 · 핵심 테마</h2>
+        <p class="section-desc">
+            전지적 독자 시점이 주는 느낌을 세 가지 키워드로 나누어 정리했다.
+        </p>
+
+        <div class="theme-grid">
+
+            <!-- 테마 1 -->
+            <div class="theme-card">
+            <img src="theme-1-survival.jpg" alt="재난 속 도시 장면" class="theme-img">
+            <h3>① 재난 속에서 살아남는 사람들</h3>
+            <p>
+                평범한 도시가 ‘시나리오’라는 규칙에 따라 붕괴되고 다시 세워진다.
+                사람들은 생존을 위해 서로를 의심하면서도,
+                동시에 연대와 선택의 순간을 맞이한다.
+            </p>
             </div>
+
+            <!-- 테마 2 -->
+            <div class="theme-card">
+            <img src="theme-2-meta.jpg" alt="독자가 주인공이 되는 메타 장면" class="theme-img">
+            <h3>② 독자가 주인공이 된 메타 세계</h3>
+            <p>
+                김독자는 “이 세계를 이미 읽어본 사람”이라는 점에서 누구보다 특별하다.
+                독자와 등장인물, 작가와 세계의 경계가 흐려지는
+                독특한 메타 구조가 작품의 핵심이다.
+            </p>
+            </div>
+
+            <!-- 테마 3 -->
+            <div class="theme-card">
+            <img src="theme-3-action.jpg" alt="긴장감 있는 전투 장면" class="theme-img">
+            <h3>③ 긴장감 있는 연출과 액션</h3>
+            <p>
+                제한 시간, 선택지, 조건부 보상과 같은 게임적 장치를 활용해
+                매 장면이 클라이맥스처럼 전개된다.
+                전투뿐 아니라 인물의 감정 변화도 강하게 대비된다.
+            </p>
+            </div>
+
+        </div>
         </section>
+
 
         <!-- 섹션 3: 스토리 시작 흐름 (타임라인) -->
         <section>
