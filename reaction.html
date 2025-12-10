@@ -3,71 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹툰 독자 반응 분석 리포트</title>
-    <link rel="stylesheet" href="reaction_styles.css"> 
-    <style>
-        /* 임시 스타일: 섹션 구분을 명확히 하기 위한 스타일 */
-        section { padding: 40px 20px; margin-bottom: 20px; border-radius: 10px; }
-        #section1 { background-color: #e9f7ef; border: 2px solid #28a745; }
-        #section2 { background-color: #f7f7e9; border: 2px solid #ffc107; }
-        #section3 { background-color: #f7eded; border: 2px solid #dc3545; }
-    </style>
+    <title>[전지적 독자시점] 분석 리포트</title>
+    <link rel="stylesheet" href="reaction_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <h1>[웹툰 제목] 독자 반응 및 평가 종합 리포트</h1>
-        <p>분석 기간: 2025.01.01 ~ 2025.12.01</p>
-    </header>
-
-    <section id="section1">
-        <h2>📊 섹션 1: 독자 평점 요약</h2>
-        <div class="layout-container">
-            <div class="chart-area">
-                <p>⭐ 네이버 평점: 9.85 / 라인 평점: 9.5</p>
-            </div>
-            <div class="summary-area">
-                <p>평균 평점 수치는 9.7점으로 장기간 유지되고 있으며, 특히 서사 전개와 인물 간 몰입감에서 높은 평가를 받았습니다. [cite: 9, 10]</p>
-            </div>
+    <div id="landing-page">
+        <div class="landing-content">
+            <h1 class="main-title">OMNISCIENT<br>READER</h1>
+            <p class="sub-title">전지적 독자시점<br>독자 반응 및 평가 리포트</p>
+            <p class="caption">"오직 나만이, 이 이야기의 결말을 알고 있다."</p>
+            <button class="enter-btn" onclick="enterApp()">분석 결과 보기 (Enter)</button>
         </div>
-    </section>
+    </div>
 
-    <section id="section2">
-        <h2>💬 섹션 2: 커뮤니티 반응</h2>
-        <div class="layout-container">
-            <div class="media-area">
-                <p>팬아트, 밈 대표 이미지 자리</p>
-            </div>
-            <div class="reaction-summary">
-                <p>트위터에서는 "00문장"이 유행하며 대표 밈으로 자리 잡았습니다. 팬들은 인물의 심층 해석에 중점을 두고 토론하는 경향이 강합니다. [cite: 20, 41]</p>
-            </div>
-        </div>
-    </section>
+    <div id="app-container" style="display: none;">
+        
+        <header class="app-header">
+            <h2>[Webtoon] 전지적 독자시점</h2>
+            <span class="status-badge">연재중</span>
+        </header>
 
-    <section id="section3">
-        <h2>⚖️ 섹션 3: 작품의 강점 & 약점</h2>
-        <div class="layout-container strength-weakness">
-            <div class="strength-area">
-                <h3>👍 강점</h3>
-                <ul>
-                    <li>세계관 완성도 및 치밀한 복선 회수력 [cite: 30]</li>
-                    <li>인물 간 개연성 높은 감정선 [cite: 30]</li>
-                </ul>
-            </div>
-            <div class="weakness-area">
-                <h3>👎 약점</h3>
-                <ul>
-                    <li>부 캐릭터 비중이 적어 아쉽다는 의견 [cite: 31]</li>
-                    <li>급격한 감정 완급 조절로 인해 발생하는 혼란 [cite: 31]</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    <section id="section4" style="background-color: #343a40; color: white;">
-        <h2>📝 섹션 4: 종합 평가 및 결론</h2>
-        <p>종합적으로 볼 때, [웹툰 제목]은 뛰어난 스토리텔링과 주제성으로 한국 웹툰 산업 내에서 상징적인 위치를 확보했으며, 팬덤의 분석적 참여를 이끌어냈습니다. [cite: 40, 41, 42]</p>
-    </section>
+        <nav class="tab-menu">
+            <button class="tab-link active" onclick="openTab('section1')">📊 평점/요약</button>
+            <button class="tab-link" onclick="openTab('section2')">💬 반응/밈</button>
+            <button class="tab-link" onclick="openTab('section3')">⚖️ 강점/약점</button>
+            <button class="tab-link" onclick="openTab('section4')">🏆 명대사</button>
+        </nav>
 
-    </body>
-</html>
+        <main class="content-area">
+
+            <div id="section1" class="tab-content active-content">
+                <div class="card summary-card">
+                    <h3>독자 평점 요약</h3>
+                    <div class="rating-box">
+                        <div class="platform-rating">
+                            <span class="platform">네이버웹툰</span>
+                            <span class="score">9.98</span>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <div class="platform-rating">
+                            <span class="platform">글로벌(WEBTOON)</span>
+                            <span class="score">9.91</span>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="analysis-text">
+                        압도적인 작화와 원작 소설의 완벽한 각색으로 <br>
+                        <strong>역대 웹툰 중 최상위권 평점</strong>을 유지 중입니다.<br>
+                        특히 '영화 같은 연출'에 대한 호평이 지배적입니다.
+                    </p>
+                </div>
+            </div>
+
+            <div id="section2" class="tab-content">
+                <div class="card">
+                    <h3>베스트 댓글 반응 (BEST)</h3>
+                    <div class="chat-bubble user">
+                        "김독자 제발 행복해져라... 구원의 마왕 ㅠㅠ"
+                    </div>
+                    <div class="chat-bubble user">
+                        "싱숑(작가)님, 이게 무료라니 믿을 수 없다. 쿠키 다 구움."
+                    </div>
+                    <div class="chat-bubble user">
+                        "오늘 연출 미쳤다... 전율 돋음."
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>주요 밈 (Meme) & 키워드</h3>
+                    <ul class="keyword-list">
+                        <li>#김독자_못생김 (동료들 눈에만)</li>
+                        <li>#우리엘_주접 (찐팬)</li>
+                        <li>#검은염룡</li>
+                        <li>#개연성</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="section3" class="tab-content">
+                <div class="card strength-card">
+                    <h3>👍 작품의 강점 (Strength)</h3>
+                    <ul>
+                        <li><strong>메타픽션의 정점:</strong> 독자가 이야기에 참여하는 듯한 몰입감
