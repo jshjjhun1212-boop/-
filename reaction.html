@@ -10,7 +10,7 @@
         background: rgba(255, 255, 255, 0.9);
         color: #1f2937;
     }
-    #community-reaction {
+    #community-reaction { /* 섹션 2: 페이지 중단에 배치, 어두운 톤 유지 */
         background: rgba(17, 24, 39, 0.8);
     }
     #strengths-weaknesses { /* 섹션 3: 대비되는 색상으로 균형감 부여 */
@@ -47,7 +47,20 @@
 
 <section id="community-reaction" class="page-section">
     <h2>💬 섹션 2: 커뮤니티 반응</h2>
-    <p>대표 밈, 유행 문장, 팬 해석 게시물 예시 등 커뮤니티 반응 내용이 들어갈 곳입니다.</p>
+    <div style="display: flex; gap: 40px; justify-content: space-between;">
+        <div style="flex: 1; padding: 15px; border: 1px dashed #6b7280; border-radius: 8px;">
+            <h3 style="color: #d1d5db;">🖼️ 팬 커뮤니티 트렌드 시각 자료</h3>
+            <p style="color: #9ca3af;">대표 밈, 유행 문장, 팬 해석 게시물 예시 등 커뮤니티 게시물 대표 이미지가 들어갈 공간입니다.</p>
+            <p style="color: #9ca3af;">댓글 캡처나 해시태그를 활용한 카드형 배열도 여기에 배치될 수 있습니다.</p>
+        </div>
+        <div style="flex: 1;">
+            <h3 style="color: #d1d5db;">🔥 국내외 화제 포인트 요약</h3>
+            <p><strong>커뮤니티명:</strong> 트위터, 페이스북, 인스타그램 등에서 활발</p>
+            <p><strong>팬 해석:</strong> 복선 분석, 캐릭터 심리 해석 등 분석형 팬 해석 게시물이 활발합니다.</p>
+            <p><strong>화제 포인트:</strong> 복잡한 설정에 대한 활발한 토론과 캐릭터 서사에 대한 몰입이 주를 이룹니다.</p>
+            <p>긍정적 반응과 논쟁적 이슈를 구분하여 정리합니다.</p>
+        </div>
+    </div>
 </section>
 
 <section id="strengths-weaknesses" class="page-section">
@@ -63,22 +76,3 @@
 <footer>
     © 비공식 전지적 독자 시점 소개 페이지
 </footer>
-
-### 2-3. 파일 저장
-
-  * 메모장 상단의 \*\*[파일]\*\*을 클릭하고 → \*\*[저장]\*\*을 클릭합니다.
-  * 메모장을 닫습니다.
-
------
-
-## 🚀 3단계: Git 커밋 및 푸시 (CMD 작업)
-
-**메모장 수정 및 저장까지 완료**하셨다면, \*\*명령 프롬프트(CMD)\*\*로 돌아와서 다음 명령어를 순서대로 입력합니다.
-
-| 번호 | 내가 쳐야 할 명령어 | 내가 눌러야 할 키 | 설명 |
-| :--- | :--- | :--- | :--- |
-| **1.** | `git add reaction.html` | `Enter` | 수정한 파일을 Git이 추적하도록 추가합니다. |
-| **2.** | `git commit -m "Feat: 섹션 1 독자 평점 요약 내용 추가"` | `Enter` | 작업 내용을 기록하는 메시지와 함께 로컬에 저장합니다. |
-| **3.** | `git push origin sunwoo` | `Enter` | GitHub의 `sunwoo` 브랜치로 최종 업로드합니다. |
-
-**코드 붙여 넣기 및 저장 작업을 먼저 완료해 주세요\!**
