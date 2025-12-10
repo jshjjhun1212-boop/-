@@ -1,0 +1,114 @@
+/* --- Global Reset and Base Styles --- */
+
+:root {
+    /* Color Palette */
+    --color-primary: #007bff;        /* Blue for positive/main actions */
+    --color-secondary: #6c757d;      /* Gray for neutral/default */
+    --color-success: #28a745;        /* Green for joy/success */
+    --color-danger: #dc3545;         /* Red for concerned/error */
+    --color-background: #f8f9fa;     /* Light background */
+    --color-text-dark: #212529;      /* Dark text */
+    
+    /* Typography and Spacing */
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --spacing-unit: 8px;
+    --border-radius-base: 6px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    font-family: var(--font-family-base);
+    line-height: 1.6;
+}
+
+/* --- Main Application Container --- */
+
+#chat-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 24px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-base);
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Reaction Display Area --- */
+
+#reaction-display {
+    min-height: 150px;
+    padding: var(--spacing-unit) * 2;
+    margin-bottom: var(--spacing-unit) * 3;
+    border-radius: var(--border-radius-base);
+    border: 1px solid var(--color-secondary);
+    transition: background-color 0.5s, border-color 0.5s;
+}
+
+.reaction-text {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin: 0;
+}
+
+.reaction-type-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-top: var(--spacing-unit);
+    font-size: 0.75em;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* --- Mood/Reaction Specific Styles (Dynamic Theming) --- */
+
+/* JOYFUL Mood */
+.mood-JOYFUL {
+    border-color: var(--color-success) !important;
+    background-color: rgba(40, 167, 69, 0.1); /* Light green tint */
+}
+.mood-JOYFUL .reaction-type-tag {
+    background-color: var(--color-success);
+}
+
+/* CONCERNED Mood */
+.mood-CONCERNED {
+    border-color: var(--color-danger) !important;
+    background-color: rgba(220, 53, 69, 0.1); /* Light red tint */
+}
+.mood-CONCERNED .reaction-type-tag {
+    background-color: var(--color-danger);
+}
+
+/* CALM Mood (Neutral) */
+.mood-CALM {
+    border-color: var(--color-secondary) !important;
+    background-color: rgba(108, 117, 125, 0.05); /* Very light gray tint */
+}
+.mood-CALM .reaction-type-tag {
+    background-color: var(--color-secondary);
+}
+
+/* REFLECTIVE/EXPLORATION Mood */
+.mood-REFLECTIVE, .mood-EXPLORATION {
+    border-color: var(--color-primary) !important;
+    background-color: rgba(0, 123, 255, 0.08); /* Light blue tint */
+}
+.mood-REFLECTIVE .reaction-type-tag, .mood-EXPLORATION .reaction-type-tag {
+    background-color: var(--color-primary);
+}
+
+/* --- Input Area Styling --- */
+
+#input-area {
+    display: flex;
+    gap: var(--spacing-unit);
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 12
