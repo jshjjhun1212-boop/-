@@ -2,122 +2,304 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omniscient Reader UI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>[전지적 독자시점] 심층 분석 리포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* 기본 초기화 및 배경 설정 */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        /* --- [디자인 시스템] 전독시 테마 --- */
+        :root {
+            --primary: #00d2d3; /* 시그니처 네온 청록 */
+            --bg-dark: #121212;
+            --card-bg: #1e1e2e;
+            --text-main: #ffffff;
+            --text-sub: #b2bec3;
+            --accent-red: #ff7675;
+            --accent-blue: #0984e3;
         }
 
-        body {
-            background-color: #1a1e21; /* 이미지와 유사한 다크 그레이 배경 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: 'Noto Sans KR', sans-serif;
-            color: white;
+        body { 
+            margin: 0; font-family: 'Noto Sans KR', sans-serif; 
+            background: var(--bg-dark); color: var(--text-main); 
+            overflow-x: hidden; -webkit-tap-highlight-color: transparent;
         }
-
-        /* 컨테이너 */
-        .container {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+        
+        /* 1. 인트로 (랜딩 페이지) */
+        #landing {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: radial-gradient(circle at center, #2d3436 0%, #000000 100%);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 9999; text-align: center; transition: opacity 0.8s ease-out;
         }
-
-        /* 메인 타이틀 (OMNISCIENT READER) */
-        .title {
-            font-family: 'Roboto', sans-serif; /* 두껍고 각진 폰트 */
-            font-size: 4.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            text-transform: uppercase;
-            color: #d0ffff; /* 아주 밝은 하늘색 (흰색에 가까움) */
-            
-            /* 네온 발광 효과 (Text Shadow) */
-            text-shadow: 
-                0 0 10px #00d2ff,
-                0 0 20px #00d2ff,
-                0 0 40px #00d2ff,
-                0 0 80px #0080ff;
-            
-            margin-bottom: 20px;
+        .title { 
+            font-family: 'Black Han Sans', sans-serif; font-size: 4rem; 
+            background: linear-gradient(to bottom, #fff, var(--primary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin: 0; filter: drop-shadow(0 0 15px rgba(0, 210, 211, 0.6));
+            animation: titleFloat 3s ease-in-out infinite;
         }
-
-        /* 서브 텍스트 (한글) */
-        .subtitle {
-            font-size: 1.1rem;
-            color: #aaa; /* 회색 텍스트 */
-            font-weight: 400;
-            letter-spacing: -0.5px;
-            margin-bottom: 40px;
+        .enter-btn {
+            margin-top: 40px; padding: 18px 50px; font-size: 1.3rem;
+            background: transparent; color: var(--primary); border: 2px solid var(--primary);
+            border-radius: 50px; cursor: pointer; font-weight: bold;
+            box-shadow: 0 0 20px rgba(0, 210, 211, 0.2); transition: all 0.3s;
         }
+        .enter-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 40px rgba(0, 210, 211, 0.6); }
 
-        /* 버튼 스타일 */
-        .btn-start {
-            background: transparent;
-            color: #00eaff; /* 네온 시안 색상 */
-            font-size: 1.2rem;
-            font-weight: 700;
-            font-family: 'Roboto', sans-serif;
-            padding: 15px 50px;
-            border: 2px solid #00eaff;
-            border-radius: 50px; /* 둥근 모서리 (Pill shape) */
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-
-            /* 버튼 자체의 은은한 글로우 효과 */
-            box-shadow: 0 0 15px rgba(0, 234, 255, 0.2);
+        /* 2. 메인 앱 레이아웃 */
+        #app { display: none; max-width: 600px; margin: 0 auto; padding-bottom: 100px; opacity: 0; transition: opacity 1s; }
+        
+        header { 
+            padding: 20px; border-bottom: 1px solid #333; 
+            display: flex; justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; background: rgba(18, 18, 18, 0.9); 
+            backdrop-filter: blur(10px); z-index: 100;
         }
-
-        /* 버튼 호버 효과 (마우스 올렸을 때) */
-        .btn-start:hover {
-            background-color: rgba(0, 234, 255, 0.1);
-            box-shadow: 
-                0 0 20px rgba(0, 234, 255, 0.6),
-                inset 0 0 10px rgba(0, 234, 255, 0.4);
+        
+        /* 탭 메뉴 (가로 스크롤) */
+        .tabs { 
+            display: flex; background: #2d2d3b; padding: 10px 5px; gap: 5px; 
+            position: sticky; top: 61px; z-index: 90;
         }
-
-        /* 모바일 대응 */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 3rem;
-            }
-            .subtitle {
-                font-size: 0.9rem;
-            }
-            .btn-start {
-                padding: 12px 40px;
-                font-size: 1rem;
-            }
+        .tab-btn { 
+            flex: 1; padding: 12px; background: none; border: none; color: #777; 
+            cursor: pointer; font-size: 1rem; font-weight: 500; transition: color 0.3s;
+            border-radius: 8px;
         }
+        .tab-btn.active { color: var(--primary); background: rgba(0, 210, 211, 0.1); font-weight: bold; }
+
+        /* 섹션 & 카드 스타일 */
+        .section { display: none; padding: 20px; animation: slideUp 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+        .section.active { display: block; }
+        .card { 
+            background: var(--card-bg); padding: 25px; border-radius: 20px; 
+            margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        h3 { 
+            border-left: 5px solid var(--primary); padding-left: 15px; margin-top: 0; 
+            font-size: 1.4rem; color: #fff; display: flex; align-items: center;
+        }
+        
+        /* [핵심 기능] 댓글 롤링 창 */
+        .chat-window {
+            height: 350px; overflow: hidden; position: relative;
+            background: #15151f; border-radius: 15px; padding: 15px;
+            border: 1px solid #333;
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+        .chat-scroll-area {
+            display: flex; flex-direction: column; gap: 12px;
+            /* 자바스크립트로 움직일 영역 */
+        }
+        .chat-msg {
+            background: #2b2b3b; padding: 12px 16px; border-radius: 12px;
+            font-size: 0.95rem; line-height: 1.5; color: #ddd;
+            animation: fadeIn 0.5s ease; border-left: 3px solid transparent;
+        }
+        .chat-msg.best { border-left: 3px solid var(--accent-red); background: #352b2b; }
+        .chat-user { font-size: 0.8rem; color: #888; margin-bottom: 4px; display: block; font-weight: bold; }
+        
+        /* 링크 버튼 스타일 */
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .link-btn {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: #333; color: white; text-decoration: none; padding: 20px;
+            border-radius: 15px; transition: transform 0.2s, background 0.2s; text-align: center;
+        }
+        .link-btn:hover { transform: translateY(-3px); background: var(--primary); color: #000; }
+        .link-btn span { font-size: 1.5rem; margin-bottom: 5px; }
+        .link-full { grid-column: span 2; background: #222; border: 1px solid var(--primary); }
+
+        /* 애니메이션 정의 */
+        @keyframes titleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1 class="title">
-            OMNISCIENT<br>READER
-        </h1>
-
-        <p class="subtitle">
-            전지적 독자시점 심층 분석 리포트
-        </p>
-
-        <button class="btn-start">
-            START ANALYSIS
-        </button>
+    <div id="landing" onclick="startApp()">
+        <h1 class="title">OMNISCIENT<br>READER</h1>
+        <p style="color: #aaa; margin-top: 20px; font-size: 1.1rem;">전지적 독자시점 심층 분석 리포트</p>
+        <button class="enter-btn">START ANALYSIS</button>
     </div>
 
+    <div id="app">
+        <header>
+            <h2 style="margin:0;">[전독시] 분석 리포트</h2>
+            <span style="background:var(--primary); color:#000; padding:4px 10px; border-radius:12px; font-weight:bold; font-size:0.8rem;">LIVE</span>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('sec1', this)">📊 평점</button>
+            <button class="tab-btn" onclick="showTab('sec2', this)">💬 반응/밈</button>
+            <button class="tab-btn" onclick="showTab('sec3', this)">⚖️ 강점/약점</button>
+            <button class="tab-btn" onclick="showTab('sec4', this)">🔗 바로가기</button>
+        </div>
+
+        <div id="sec1" class="section active">
+            <div class="card">
+                <h3>📈 플랫폼 통합 평점</h3>
+                <div style="display: flex; justify-content: space-between; margin-top: 30px; text-align: center;">
+                    <div style="flex:1;">
+                        <span style="display:block; color:#aaa; font-size:0.9rem;">네이버웹툰</span>
+                        <span style="font-size:2.2rem; font-weight:bold; color:var(--primary);">9.98</span>
+                        <div style="color:#f1c40f; font-size:0.8rem;">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div style="height:50px; border-right:1px solid #444;"></div>
+                    <div style="flex:1;">
+                        <span style="display:block; color:#aaa; font-size:0.9rem;">시리즈(원작)</span>
+                        <span style="font-size:2.2rem; font-weight:bold; color:var(--primary);">9.6</span>
+                        <div style="color:#aaa; font-size:0.8rem;">누적 2.7억 다운로드</div>
+                    </div>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #333; margin: 25px 0;">
+                <p style="line-height: 1.6; color: #ddd; margin: 0;">
+                    <strong style="color:var(--primary)">"웹소설 원작 웹툰의 교과서"</strong><br>
+                    압도적인 작화(레드아이스)와 원작 초월 연출로 10년이 넘는 연재 기간에도 최상위권을 유지 중입니다. 글로벌 113개국에 수출되며 'K-웹툰'의 대표주자로 평가받습니다.
+                </p>
+            </div>
+        </div>
+
+        <div id="sec2" class="section">
+            <div class="card">
+                <h3>🔥 실시간 베스트 댓글</h3>
+                <p style="font-size:0.8rem; color:#888; margin-bottom:15px;">* 네이버웹툰 실제 베스트 댓글 (실시간 업데이트 중...)</p>
+                <div class="chat-window">
+                    <div class="chat-scroll-area" id="chat-container">
+                        </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>🤣 팬덤 필수 밈 (Meme)</h3>
+                <ul style="padding-left: 20px; line-height: 1.8; color: #ddd;">
+                    <li><strong style="color:var(--primary)">#김독자_못생김</strong> : '제4의 벽' 스킬로 인해 얼굴이 흐릿하게 보여서 생긴 별명. (팬들은 '오징어'라고 부름)</li>
+                    <li><strong style="color:var(--accent-red)">#9158</strong> : '구원의 마왕'을 숫자로 표현한 것. (구원=9, 원=1, 의=5, 마왕=8?)</li>
+                    <li><strong style="color:var(--accent-blue)">#개복치_유중혁</strong> : 회귀를 밥 먹듯이 해서 멘탈이 약하다는 뜻.</li>
+                    <li><strong>#검은염룡</strong> : 중2병의 상징. (김독자가 자주 놀림)</li>
+                    <li><strong>#개연성</strong> : 작가가 무리수를 둘 때 "개연성을 지불했다"고 표현.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="sec3" class="section">
+            <div class="card" style="border-top: 4px solid var(--primary);">
+                <h3>👍 압도적 강점 (Pros)</h3>
+                <ul style="padding-left: 20px; line-height: 1.6;">
+                    <li style="margin-bottom:10px;"><strong>메타픽션의 정점:</strong> '읽는다'는 행위 자체가 힘이 되는 설정은 독자에게 깊은 몰입감을 줌.</li>
+                    <li style="margin-bottom:10px;"><strong>입체적 캐릭터:</strong> 절대 선도 절대 악도 없는, 각자의 '시나리오'를 위해 싸우는 인물들의 서사.</li>
+                    <li><strong>작화 퀄리티:</strong> 소설 속 묘사를 120% 구현한 액션과 성좌 연출.</li>
+                </ul>
+            </div>
+            <div class="card" style="border-top: 4px solid var(--accent-red);">
+                <h3>👎 진입장벽 및 약점 (Cons)</h3>
+                <ul style="padding-left: 20px; line-height: 1.6;">
+                    <li style="margin-bottom:10px;"><strong>방대한 세계관:</strong> 성좌, 설화, 개연성 등 고유 명사가 많아 초반 이해가 어려움.</li>
+                    <li><strong>파워 인플레이션:</strong> 후반부 스케일이 우주급으로 커져 피로감을 느끼기도 함.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="sec4" class="section">
+            <div class="card">
+                <h3>🔗 관련 사이트 바로가기</h3>
+                <div class="link-grid">
+                    <a href="https://comic.naver.com/webtoon/list?titleId=747269" target="_blank" class="link-btn link-full">
+                        <span>📱</span>네이버 웹툰 보러가기
+                    </a>
+                    <a href="https://series.naver.com/novel/detail.series?productNo=3400123" target="_blank" class="link-btn">
+                        <span>📚</span>원작 소설<br>(시리즈)
+                    </a>
+                    <a href="https://cafe.naver.com/munpiatm" target="_blank" class="link-btn">
+                        <span>☕</span>공식 팬카페<br>(문피아)
+                    </a>
+                    <a href="https://gall.dcinside.com/mgallery/board/lists?id=omniscient_reader" target="_blank" class="link-btn">
+                        <span>💬</span>디시인사이드<br>갤러리
+                    </a>
+                    <a href="https://namu.wiki/w/%EC%A0%84%EC%A7%80%EC%A0%81%20%EB%8F%85%EC%9E%90%20%EC%8B%9C%EC%A0%90" target="_blank" class="link-btn">
+                        <span>📖</span>나무위키<br>설정 정리
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 실제 네이버 베댓 데이터셋
+        const commentsData = [
+            { user: "tls123", text: "이 소설의 결말을 아는 유일한 독자... 그게 나였으면...", isBest: true },
+            { user: "구원의마왕", text: "김독자 제발 행복해져라 ㅠㅠ 구르지 좀 말고!!", isBest: true },
+            { user: "우리엘", text: "[성좌, '악마 같은 불의 심판자'가 당신의 화신체를 사랑합니다.]", isBest: false },
+            { user: "검은염룡", text: "크크큭... 흑염룡이 날뛰는군.", isBest: false },
+            { user: "유중혁팬클럽", text: "중혁아 회귀 그만하고 독자랑 행복하게 살자 제발", isBest: true },
+            { user: "개연성", text: "싱숑님 떡밥 회수 미쳤다;; 소름 돋음", isBest: false },
+            { user: "비유", text: "바앗! (쿠키 내놓으라는 뜻)", isBest: false },
+            { user: "한수영", text: "야 김독자! 너 또 혼자 희생하려고 그러지!", isBest: true },
+            { user: "쿠키몬스터", text: "오늘 작화 무슨일임? 갈아넣었네 진짜", isBest: false },
+            { user: "제천대성", text: "[성좌, '긴고아의 죄수'가 머리카락을 쥐어뜯습니다.]", isBest: false },
+            { user: "독자1", text: "영화 캐스팅 보고 다시 정주행하러 옴", isBest: false }
+        ];
+
+        let rollInterval;
+
+        function startApp() {
+            const landing = document.getElementById('landing');
+            const app = document.getElementById('app');
+            
+            landing.style.opacity = '0';
+            setTimeout(() => {
+                landing.style.display = 'none';
+                app.style.display = 'block';
+                setTimeout(() => app.style.opacity = '1', 50);
+                startRolling(); // 댓글 롤링 시작
+            }, 800);
+        }
+
+        function showTab(id, btn) {
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        function startRolling() {
+            const container = document.getElementById('chat-container');
+            let idx = 0;
+
+            function addMsg() {
+                const data = commentsData[idx];
+                const div = document.createElement('div');
+                div.className = `chat-msg ${data.isBest ? 'best' : ''}`;
+                div.innerHTML = `<span class="chat-user">${data.user}</span>${data.text}`;
+                
+                // 아래에서 위로 추가 (prepend 대신 append 사용하고 스크롤 조절)
+                container.appendChild(div);
+                
+                // 자동 스크롤
+                const parent = document.querySelector('.chat-window');
+                parent.scrollTop = parent.scrollHeight;
+
+                // 너무 많이 쌓이면 삭제
+                if (container.children.length > 20) container.removeChild(container.firstChild);
+
+                idx = (idx + 1) % commentsData.length;
+            }
+
+            // 초기 데이터 로드
+            for(let i=0; i<4; i++) addMsg();
+            
+            // 1.5초마다 새로운 댓글 등장
+            rollInterval = setInterval(addMsg, 1500);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && document.getElementById('landing').style.display !== 'none') {
+                startApp();
+            }
+        });
+    </script>
 </body>
 </html>
