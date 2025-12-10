@@ -1,78 +1,408 @@
-/* reaction.html 전용 섹션 스타일 */
-    .page-section {
-        width: 90%;
-        max-width: 1000px;
-        padding: 50px 20px;
-        margin: 20px auto;
-        border-radius: 10px;
-    }
-    #rating-summary { /* 섹션 1: 밝은 톤 배경 */
-        background: rgba(255, 255, 255, 0.9);
-        color: #1f2937;
-    }
-    #community-reaction { /* 섹션 2: 페이지 중단에 배치, 어두운 톤 유지 */
-        background: rgba(17, 24, 39, 0.8);
-    }
-    #strengths-weaknesses { /* 섹션 3: 대비되는 색상으로 균형감 부여 */
-        background: rgba(31, 41, 55, 0.9);
-    }
-    #conclusion { /* 섹션 4: 어두운 톤으로 전반 요약 강조 */
-        background: #020617; 
-        border-top: 5px solid #fbbf24;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹툰 상세 분석 보고서</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<header>
-    <h1>독자 반응 & 평가</h1>
-    <p>평점, 커뮤니티 트렌드, 강점 및 약점 분석</p>
-</header>
+    <header class="report-header">
+        <h1>[웹툰 제목] 상세 분석 보고서 (독자 반응 및 평가)</h1>
+        <p>데이터 기준: 2025년 12월 기준</p>
+    </header>
 
-<section id="rating-summary" class="page-section">
-    <h2>📊 섹션 1: 독자 평점 요약</h2>
-    <div style="display: flex; gap: 40px; justify-content: space-between;">
-        <div style="flex: 1; background: #f9fafb; padding: 20px; border-radius: 8px;">
-            <h3 style="color: #1f2937;">⭐️ 플랫폼별 평점 현황</h3>
-            <p style="color: #4b5563;">네이버 웹툰: 9.92점 (2025년 12월 기준)</p>
-            <p style="color: #4b5563;">라인 웹툰 (글로벌): 9.75점</p>
-            <p style="color: #4b5563;">평균 평점 수치 및 유지 기간을 보여주는 평가 변화 추이 시각 자료 (그래프) 삽입 공간입니다.</p>
+    <section id="section-1" class="section rating-summary light-bg">
+        <div class="container section-1-content">
+            <div class="rating-chart-area">
+                <div class="rating-visual">
+                    <span class="star-icon">⭐️⭐️⭐️⭐️✨</span>
+                    <p class="avg-score">평균 평점 9.87</p>
+                    <p class="platform-note">네이버웹툰, 라인, 해외 플랫폼 종합</p>
+                </div>
+                <div class="trend-graph">
+                    <p>평가 변화 추이 (3개월)</p>
+                    <div class="placeholder-box">Graph Placeholder</div>
+                </div>
+            </div>
+            
+            <div class="rating-text-area">
+                <h2>🥇 독자 평점 요약</h2>
+                <p class="summary-text">
+                    [웹툰 제목]은 출시 이후 평균 평점 **9.87**을 6개월간 안정적으로 유지하고 있습니다. 이는 압도적인 서사 완성도, 입체적인 인물 디자인, 그리고 매 화마다 극대화되는 몰입감 덕분인 것으로 분석됩니다.
+                </p>
+                <ul class="platform-list">
+                    <li>**네이버웹툰:** 9.90</li>
+                    <li>**라인 웹툰 (JPN):** 4.7 / 5.0</li>
+                    <li>**해외 플랫폼 평균:** 9.75</li>
+                </ul>
+            </div>
         </div>
-        <div style="flex: 1; color: #1f2937;">
-            <h3>✨ 종합 평점 및 인기 요약</h3>
-            <h1 style="font-size: 64px; color: #f59e0b; margin: 0;">9.88</h1>
-            <p>평균 평점 9.88점 유지. 런칭 이후 2년간 최상위 평점을 꾸준히 유지하고 있습니다.</p>
-            <p><strong>주요 인기 상승 이유:</strong> 탄탄한 서사, 매력적인 인물 개연성, 독자의 몰입감을 극대화하는 연출력</p>
+    </section>
+
+    <section id="section-2" class="section community-reaction">
+        <div class="container section-2-content">
+            <div class="reaction-visual">
+                <h2>🗣️ 커뮤니티 반응</h2>
+                <div class="image-grid">
+                    <div class="placeholder-image fanart">팬아트/밈 이미지</div>
+                    <div class="placeholder-image post">화제 게시물 캡처</div>
+                </div>
+                <p class="community-source">출처: 트위터, 페이스북, 인스타그램 등</p>
+            </div>
+            
+            <div class="reaction-summary">
+                <p>국내외 팬 커뮤니티에서 폭발적인 화제성을 보이며, 특히 [대표 밈]과 [유행 문장]이 재생산되고 있습니다.</p>
+                
+                <div class="reaction-cards">
+                    <div class="card positive">
+                        <h3>긍정적 반응</h3>
+                        <p>캐릭터 서사에 대한 깊이 있는 팬 해석 게시물이 활발하며, 압도적인 지지를 받고 있습니다.</p>
+                    </div>
+                    <div class="card controversial">
+                        <h3>논쟁적 이슈</h3>
+                        <p>특정 캐릭터의 감정 완급 조절이나 [논쟁 주제]에 대한 독자 간의 가벼운 논쟁이 정리되어 나타납니다.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="community-reaction" class="page-section">
-    <h2>💬 섹션 2: 커뮤니티 반응</h2>
-    <div style="display: flex; gap: 40px; justify-content: space-between;">
-        <div style="flex: 1; padding: 15px; border: 1px dashed #6b7280; border-radius: 8px;">
-            <h3 style="color: #d1d5db;">🖼️ 팬 커뮤니티 트렌드 시각 자료</h3>
-            <p style="color: #9ca3af;">대표 밈, 유행 문장, 팬 해석 게시물 예시 등 커뮤니티 게시물 대표 이미지가 들어갈 공간입니다.</p>
-            <p style="color: #9ca3af;">댓글 캡처나 해시태그를 활용한 카드형 배열도 여기에 배치될 수 있습니다.</p>
+    <section id="section-3" class="section strength-weakness">
+        <div class="container section-3-content">
+            <div class="analysis-box strength-box">
+                <h2>✨ 강점 (Strengths)</h2>
+                <ul class="analysis-list">
+                    <li>**세계관 완성도:** 치밀한 설정과 높은 개연성을 바탕으로 합니다.</li>
+                    <li>**연출 및 연출:** 장면 전환과 복선 회수력이 뛰어나 독자들에게 카타르시스를 제공합니다.</li>
+                    <li><q>압도적인 세계관 구축의 교본이다.</q> - 평론가 인용</li>
+                </ul>
+            </div>
+            
+            <div class="analysis-box weakness-box">
+                <h2>🚧 약점 (Weaknesses)</h2>
+                <ul class="analysis-list">
+                    <li>**부 캐릭터 비중:** 핵심 스토리 외 부 캐릭터의 비중이 다소 부족하다는 지적이 있습니다.</li>
+                    <li>**감정 완급 조절:** 일부 구간에서 주인공의 감정선 변화가 급격하여 독자의 공감대가 잠시 흔들립니다.</li>
+                    <li><q>조연 캐릭터들에게 좀 더 숨 쉴 틈을 주었으면 한다.</q> - 독자 의견</li>
+                </ul>
+            </div>
         </div>
-        <div style="flex: 1;">
-            <h3 style="color: #d1d5db;">🔥 국내외 화제 포인트 요약</h3>
-            <p><strong>커뮤니티명:</strong> 트위터, 페이스북, 인스타그램 등에서 활발</p>
-            <p><strong>팬 해석:</strong> 복선 분석, 캐릭터 심리 해석 등 분석형 팬 해석 게시물이 활발합니다.</p>
-            <p><strong>화제 포인트:</strong> 복잡한 설정에 대한 활발한 토론과 캐릭터 서사에 대한 몰입이 주를 이룹니다.</p>
-            <p>긍정적 반응과 논쟁적 이슈를 구분하여 정리합니다.</p>
+        <div class="summary-footer">
+            <p>전반적 평가: 평균 점수 9.87점 유지, 인지도는 지속적인 상승세를 보입니다.</p>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="strengths-weaknesses" class="page-section">
-    <h2>⚔️ 섹션 3: 작품의 강점 & 약점</h2>
-    <p>좌측은 강점 (세계관 완성도 등), 우측은 약점 (부 캐릭터 비중 등)으로 나누어 배치할 곳입니다.</p>
-</section>
+    <section id="section-4" class="section conclusion dark-bg">
+        <div class="container conclusion-content">
+            <p class="fan-comment">"이 작품은 단순한 웹툰을 넘어선 하나의 철학적 고찰이다."</p>
+            <h2>🎉 종합 평가 및 결론</h2>
+            <div class="final-summary">
+                <p>
+                    전체적으로 스토리, 그림체, 주제성 모두에서 높은 완성도를 보입니다. 특히 팬덤은 토론형, 분석형, 참여형의 특징을 모두 갖춘 강력한 문화적 현상으로 자리 잡았습니다. 이 작품은 단순한 흥행작을 넘어, 향후 한국 웹툰 산업 내에서 새로운 서사 구조의 **상징적 위치**를 차지할 것으로 전망됩니다.
+                </p>
+                <p class="impact-note">**산업 영향:** 이 작품의 성공은 웹툰의 지적재산권(IP) 확장 모델에 중요한 영향을 미칠 것입니다.</p>
+            </div>
+        </div>
+    </section>
 
-<section id="conclusion" class="page-section">
-    <h2>⭐ 섹션 4: 종합 평가 및 결론</h2>
-    <p>전체 평가 요약 및 작품의 상징적 위치와 한국 웹툰 산업 내 영향 분석 단락이 들어갈 곳입니다.</p>
-</section>
+    <footer class="report-footer">
+        <p>웹툰 분석 보고서 - 최종본</p>
+    </footer>
 
-<footer>
-    © 비공식 전지적 독자 시점 소개 페이지
-</footer>
+</body>
+</html>
+
+/* 기본적인 리셋 및 폰트 설정 */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    padding: 60px 0;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+h1, h2 {
+    color: #1a237e; /* 메인 색상 */
+    font-weight: 700;
+}
+
+/* 보고서 헤더 */
+.report-header {
+    background-color: #1a237e;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* ==================================== */
+/* 섹션 1: 독자 평점 요약 (상단 배치) */
+/* ==================================== */
+.rating-summary {
+    background-color: #ffffff; /* 밝은 톤 강조 [cite: 6] */
+}
+
+.section-1-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.rating-chart-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #eee;
+    padding-right: 40px;
+}
+
+.rating-visual {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.star-icon {
+    font-size: 3em;
+    color: #ffc107;
+}
+
+.avg-score {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #e91e63;
+}
+
+.trend-graph .placeholder-box {
+    height: 150px;
+    width: 250px;
+    background-color: #f0f4f7;
+    border: 1px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.rating-text-area {
+    flex: 2;
+}
+
+.platform-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.platform-list li {
+    background: #e3f2fd;
+    padding: 8px 15px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* ==================================== */
+/* 섹션 2: 커뮤니티 반응 (중단 배치) */
+/* ==================================== */
+.community-reaction {
+    background-color: #f0f4f7;
+}
+
+.section-2-content {
+    display: flex;
+    gap: 40px;
+}
+
+.reaction-visual {
+    flex: 1;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.placeholder-image {
+    height: 120px;
+    background-color: #cfd8dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 0.8em;
+    color: #555;
+    text-align: center;
+}
+
+.reaction-summary {
+    flex: 2;
+}
+
+.reaction-cards {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    flex: 1;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.positive {
+    background-color: #e8f5e9;
+    border-left: 5px solid #4caf50;
+}
+
+.controversial {
+    background-color: #fff3e0;
+    border-left: 5px solid #ff9800;
+}
+
+
+/* ==================================== */
+/* 섹션 3: 작품의 강점 & 약점 (하단 넓게 배치) */
+/* ==================================== */
+.strength-weakness {
+    background-color: #ffffff;
+}
+
+.section-3-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.analysis-box {
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.strength-box {
+    background-color: #e1f5fe;
+    border-left: 5px solid #03a9f4;
+    /* 좌측은 강점 [cite: 26] */
+}
+
+.weakness-box {
+    background-color: #ffebee;
+    border-left: 5px solid #f44336;
+    /* 우측은 약점 [cite: 26] */
+    /* 대비되는 색상으로 시각적 균형 [cite: 27] */
+}
+
+.analysis-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.analysis-list li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.analysis-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #1a237e;
+    font-weight: bold;
+}
+
+.summary-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+    font-style: italic;
+    color: #666;
+}
+
+/* ==================================== */
+/* 섹션 4: 종합 평가 및 결론 (페이지 마지막) */
+/* ==================================== */
+.conclusion {
+    background-color: #37474f; /* 어두운 톤으로 전반 요약 강조 [cite: 37] */
+    color: #ffffff;
+    text-align: center;
+}
+
+.fan-comment {
+    font-style: italic;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #546e7a;
+    padding-bottom: 15px;
+}
+
+.final-summary {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.impact-note {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #b3e5fc;
+}
+
+/* 보고서 푸터 */
+.report-footer {
+    background-color: #263238;
+    color: #cfd8dc;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8em;
+}
+
+/* 미디어 쿼리 (반응형: 768px 이하 화면) */
+@media (max-width: 768px) {
+    .section-1-content,
+    .section-2-content,
+    .section-3-content,
+    .reaction-cards {
+        flex-direction: column;
+    }
+
+    .rating-chart-area {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-right: 0;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+
+    .analysis-box {
+        margin-bottom: 20px;
+    }
+}
+
