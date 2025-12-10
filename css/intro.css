@@ -1,308 +1,295 @@
-/* ===== 공통 배경 & 레이아웃 ===== */
+/* 공통 설정 */
+* {
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", system-ui, sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #e5edff;
 
-    /* bg.png 는 루트에 있으므로 ../ 로 한 단계 올라가기 */
-    background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.75),
-            rgba(0, 0, 0, 0.9)
-        ),
-        url("../bg.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    color: #e5e7eb;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0.9)
+    ),
+    url("../bg.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.archive-shell {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ===== 상단 헤더 바 (전독시 ARCHIVE) ===== */
+/* 상단 바 */
 .top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 40px;
-    background: rgba(15, 23, 42, 0.96);
-    border-bottom: 1px solid #1f2937;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-}
-
-.brand {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 32px;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.5);
 }
 
 .brand-main {
-    font-size: 20px;
-    font-weight: 700;
-    color: #fbbf24;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
 
 .brand-sub {
-    font-size: 16px;
-    letter-spacing: 0.08em;
-    color: #e5e7eb;
+  margin-left: 8px;
+  font-size: 11px;
+  color: #94a3b8;
+  letter-spacing: 0.16em;
 }
 
-.top-back-btn {
-    font-size: 13px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1px solid #4b5563;
-    color: #e5e7eb;
-    text-decoration: none;
-    background: rgba(15, 23, 42, 0.9);
+.back-link {
+  padding: 6px 14px;
+  font-size: 13px;
+  text-decoration: none;
+  color: #bfdbfe;
+  border-radius: 999px;
+  border: 1px solid rgba(129, 199, 255, 0.7);
+  background: rgba(15, 23, 42, 0.9);
 }
 
-.top-back-btn:hover {
-    border-color: #fbbf24;
-    color: #fbbf24;
+/* 메인 레이아웃 */
+.intro-main {
+  max-width: 1060px;
+  width: 100%;
+  margin: 28px auto 40px;
+  padding: 0 20px 40px;
 }
 
-/* ===== 중앙 컨텐츠 공통 ===== */
-.archive-main {
-    max-width: 1120px;
-    margin: 24px auto 40px;
-    padding: 0 24px 40px;
+/* 히어로 */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(220px, 2fr);
+  gap: 24px;
+  padding: 22px 24px;
+  background: rgba(15, 23, 42, 0.98);
+  border-radius: 22px;
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.75);
+  margin-bottom: 26px;
 }
 
-/* 머리말 영역 */
-.intro-header {
-    margin-bottom: 20px;
+.hero-text h1 {
+  margin: 0 0 8px;
+  font-size: 26px;
 }
 
-.system-pill {
-    display: inline-block;
-    font-size: 11px;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: rgba(15, 23, 42, 0.9);
-    border: 1px solid rgba(148, 163, 184, 0.8);
-    color: #cbd5f5;
-    margin-bottom: 10px;
+.hero-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #c7d2fe;
 }
 
-.intro-title {
-    margin: 0 0 6px;
-    font-size: 26px;
-    color: #fbbf24;
+.hero-image img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
 }
 
-.intro-lead {
-    margin: 0 0 10px;
-    font-size: 14px;
-    color: #cbd5f5;
-}
-
-/* 공통 카드 스타일 */
+/* 공통 카드 */
 .card {
-    background: rgba(15, 23, 42, 0.95);
-    border: 1px solid #374151;
-    border-radius: 20px;
-    padding: 24px 26px 28px;
-    margin-bottom: 22px;
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
+  margin-top: 18px;
+  padding: 22px 24px 24px;
+  background: rgba(15, 23, 42, 0.96);
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
 }
 
 .card-title {
-    margin: 0 0 6px;
-    font-size: 20px;
-    color: #fbbf24;
+  margin: 0 0 10px;
+  font-size: 20px;
 }
 
 .card-caption {
-    margin: 0 0 14px;
-    font-size: 13px;
-    color: #cbd5f5;
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+/* 1번 섹션: 작품 기본 정보 */
+.card-info {
+  padding: 22px 24px;
 }
 
-/* ===== 카드 1: 작품 기본 정보 ===== */
-.info-layout {
-    display: grid;
-    grid-template-columns: 260px minmax(0, 1fr);
-    gap: 22px;
-    align-items: stretch;
+.info-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.8fr);
+  gap: 24px;
+  margin-top: 14px;
 }
 
-.cover-box {
-    border-radius: 18px;
-    overflow: hidden;
-    background: radial-gradient(circle at top, #1f2937, #020617);
+.info-list div {
+  margin-bottom: 10px;
 }
 
-.cover-image {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
+.info-list dt {
+  font-size: 14px;
+  color: #a1a1aa;
 }
 
-.info-text p {
-    margin: 4px 0;
-    font-size: 14px;
-    line-height: 1.6;
+.info-list dd {
+  margin: 2px 0 0;
+  font-size: 15px;
 }
 
-.tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 4px 0 10px;
+.info-paragraph {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #dfe7ff;
 }
 
-.tag {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(30, 64, 175, 0.35);
-    border: 1px solid rgba(129, 140, 248, 0.7);
-    font-size: 11px;
-    color: #e5e7eb;
+/* 모바일 */
+@media (max-width: 760px) {
+  .info-wrapper {
+    grid-template-columns: 1fr;
+  }
 }
 
-.meta {
-    font-size: 13px;
-    color: #9ca3af;
-    margin-bottom: 6px;
-}
 
-.one-line {
-    margin: 6px 0 8px;
-    font-size: 15px;
-    color: #fef3c7;
-}
-
-/* ===== 카드 2: 분위기 / 핵심 테마 ===== */
+/* 2. 테마 카드 */
 .theme-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 10px;
 }
 
 .theme-card {
-    background: #020617;
-    border-radius: 16px;
-    border: 1px solid #1f2937;
-    padding: 14px 14px 16px;
-    display: flex;
-    flex-direction: column;
-}
-
-.theme-img-wrap {
-    width: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 10px;
+  padding: 12px 12px 14px;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.4);
 }
 
 .theme-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 140px;
+  margin-bottom: 8px;
+}
+
+.theme-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .theme-card h3 {
-    margin: 2px 0 6px;
-    font-size: 15px;
-    color: #fbbf24;
+  margin: 2px 0 6px;
+  font-size: 14px;
 }
 
 .theme-card p {
-    margin: 0;
-    font-size: 13px;
-    line-height: 1.55;
-    color: #d1d5db;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #cbd5f5;
 }
 
-/* ===== 카드 3: 타임라인 ===== */
-.timeline {
-    margin-top: 6px;
-    border-left: 2px solid #4b5563;
-    padding-left: 18px;
+/* 3. 스토리 시작 흐름 */
+.story-card {
+  margin-top: 22px;
 }
 
-.step {
-    position: relative;
-    margin-bottom: 18px;
+.story-step {
+  position: relative;
+  background: rgba(8, 16, 32, 0.98);
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  padding: 16px 18px 16px 36px;
+  margin-bottom: 16px;
 }
 
-.step:last-child {
-    margin-bottom: 0;
+.step-number {
+  position: absolute;
+  left: 12px;
+  top: 16px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #60a5fa;
+  color: #60a5fa;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.step-badge {
-    position: absolute;
-    left: -31px;
-    top: 0;
-    width: 22px;
-    height: 22px;
-    border-radius: 999px;
-    background: #fbbf24;
-    color: #111827;
-    font-size: 11px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.step-content {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1.1fr); /* 글 : 이미지 ≒ 3 : 1 */
+  gap: 16px;
+  align-items: center;
 }
 
-.step-title {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 4px;
-    color: #e5e7eb;
+.step-text h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
 }
 
-.step-text {
-    font-size: 13px;
-    color: #cbd5f5;
-    line-height: 1.6;
+.step-text p {
+  margin: 0 0 6px;
+  font-size: 15px;    /* 글자 조금 크게 */
+  line-height: 1.7;
+  color: #e5edff;
+}
+
+.step-image {
+  max-width: 230px;   /* 이미지 크기 제한 */
+  justify-self: end;
+}
+
+.step-image img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
 }
 
 /* 푸터 */
 .intro-footer {
-    text-align: right;
-    font-size: 11px;
-    color: #9ca3af;
-    margin-top: 6px;
+  margin-top: 26px;
+  font-size: 11px;
+  text-align: center;
+  color: #9ca3af;
 }
 
-/* ===== 반응형 ===== */
-@media (max-width: 960px) {
-    .archive-main {
-        padding: 0 16px 32px;
-    }
+/* 반응형 */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
 
-    .info-layout {
-        grid-template-columns: 1fr;
-    }
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-@media (max-width: 780px) {
-    .top-bar {
-        padding: 10px 16px;
-    }
+@media (max-width: 700px) {
+  .theme-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .theme-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
+  .step-content {
+    grid-template-columns: 1fr;
+  }
 
-@media (max-width: 560px) {
-    .theme-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .intro-title {
-        font-size: 22px;
-    }
+  .step-image {
+    max-width: 100%;
+  }
 }
