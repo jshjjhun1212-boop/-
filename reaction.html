@@ -1,0 +1,84 @@
+/* reaction.html 전용 섹션 스타일 */
+    .page-section {
+        width: 90%;
+        max-width: 1000px;
+        padding: 50px 20px;
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+    #rating-summary { /* 섹션 1: 밝은 톤 배경 */
+        background: rgba(255, 255, 255, 0.9);
+        color: #1f2937;
+    }
+    #community-reaction {
+        background: rgba(17, 24, 39, 0.8);
+    }
+    #strengths-weaknesses { /* 섹션 3: 대비되는 색상으로 균형감 부여 */
+        background: rgba(31, 41, 55, 0.9);
+    }
+    #conclusion { /* 섹션 4: 어두운 톤으로 전반 요약 강조 */
+        background: #020617; 
+        border-top: 5px solid #fbbf24;
+    }
+</style>
+
+<header>
+    <h1>독자 반응 & 평가</h1>
+    <p>평점, 커뮤니티 트렌드, 강점 및 약점 분석</p>
+</header>
+
+<section id="rating-summary" class="page-section">
+    <h2>📊 섹션 1: 독자 평점 요약</h2>
+    <div style="display: flex; gap: 40px; justify-content: space-between;">
+        <div style="flex: 1; background: #f9fafb; padding: 20px; border-radius: 8px;">
+            <h3 style="color: #1f2937;">⭐️ 플랫폼별 평점 현황</h3>
+            <p style="color: #4b5563;">네이버 웹툰: 9.92점 (2025년 12월 기준)</p>
+            <p style="color: #4b5563;">라인 웹툰 (글로벌): 9.75점</p>
+            <p style="color: #4b5563;">평균 평점 수치 및 유지 기간을 보여주는 평가 변화 추이 시각 자료 (그래프) 삽입 공간입니다.</p>
+        </div>
+        <div style="flex: 1; color: #1f2937;">
+            <h3>✨ 종합 평점 및 인기 요약</h3>
+            <h1 style="font-size: 64px; color: #f59e0b; margin: 0;">9.88</h1>
+            <p>평균 평점 9.88점 유지. 런칭 이후 2년간 최상위 평점을 꾸준히 유지하고 있습니다.</p>
+            <p><strong>주요 인기 상승 이유:</strong> 탄탄한 서사, 매력적인 인물 개연성, 독자의 몰입감을 극대화하는 연출력</p>
+        </div>
+    </div>
+</section>
+
+<section id="community-reaction" class="page-section">
+    <h2>💬 섹션 2: 커뮤니티 반응</h2>
+    <p>대표 밈, 유행 문장, 팬 해석 게시물 예시 등 커뮤니티 반응 내용이 들어갈 곳입니다.</p>
+</section>
+
+<section id="strengths-weaknesses" class="page-section">
+    <h2>⚔️ 섹션 3: 작품의 강점 & 약점</h2>
+    <p>좌측은 강점 (세계관 완성도 등), 우측은 약점 (부 캐릭터 비중 등)으로 나누어 배치할 곳입니다.</p>
+</section>
+
+<section id="conclusion" class="page-section">
+    <h2>⭐ 섹션 4: 종합 평가 및 결론</h2>
+    <p>전체 평가 요약 및 작품의 상징적 위치와 한국 웹툰 산업 내 영향 분석 단락이 들어갈 곳입니다.</p>
+</section>
+
+<footer>
+    © 비공식 전지적 독자 시점 소개 페이지
+</footer>
+
+### 2-3. 파일 저장
+
+  * 메모장 상단의 \*\*[파일]\*\*을 클릭하고 → \*\*[저장]\*\*을 클릭합니다.
+  * 메모장을 닫습니다.
+
+-----
+
+## 🚀 3단계: Git 커밋 및 푸시 (CMD 작업)
+
+**메모장 수정 및 저장까지 완료**하셨다면, \*\*명령 프롬프트(CMD)\*\*로 돌아와서 다음 명령어를 순서대로 입력합니다.
+
+| 번호 | 내가 쳐야 할 명령어 | 내가 눌러야 할 키 | 설명 |
+| :--- | :--- | :--- | :--- |
+| **1.** | `git add reaction.html` | `Enter` | 수정한 파일을 Git이 추적하도록 추가합니다. |
+| **2.** | `git commit -m "Feat: 섹션 1 독자 평점 요약 내용 추가"` | `Enter` | 작업 내용을 기록하는 메시지와 함께 로컬에 저장합니다. |
+| **3.** | `git push origin sunwoo` | `Enter` | GitHub의 `sunwoo` 브랜치로 최종 업로드합니다. |
+
+**코드 붙여 넣기 및 저장 작업을 먼저 완료해 주세요\!**
