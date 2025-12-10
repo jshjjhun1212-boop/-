@@ -4,62 +4,208 @@
 <meta charset="UTF-8">
 <title>전독시 이벤트 상세</title>
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #020617;
-    color: white;
-}
-header {
-    padding: 20px;
-    background: #020617;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-a {
-    color: #fbbf24;
-    text-decoration: none;
-}
-main {
-    max-width: 900px;
-    margin: auto;
-    padding: 30px 20px;
-}
-.section {
-    background: #020617;
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 20px;
-}
-h2 {
-    color: #fbbf24;
-}
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #020617;
+        color: #e5e7eb;
+    }
+
+    header {
+        padding: 20px;
+        background: #020617;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 24px;
+        color: #fbbf24;
+    }
+
+    a {
+        color: #fbbf24;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    main {
+        max-width: 900px;
+        margin: auto;
+        padding: 30px 20px 60px;
+    }
+
+    .section {
+        background: #020617;
+        border: 1px solid #334155;
+        border-radius: 16px;
+        padding: 22px 22px;
+        margin-top: 20px;
+        box-shadow: 0 18px 35px rgba(15,23,42,0.8);
+    }
+
+    .section h2 {
+        color: #fbbf24;
+        margin-top: 0;
+        margin-bottom: 14px;
+        font-size: 20px;
+    }
+
+    .event-layout {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .event-image {
+        flex: 0 0 190px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(148,163,184,0.4);
+        background: #020617;
+    }
+
+    .event-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .event-content {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .event-summary {
+        margin: 0 0 8px;
+        color: #e5e7eb;
+        font-size: 14px;
+    }
+
+    .event-detail {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #cbd5f5;
+    }
+
+    .event-detail ul {
+        padding-left: 18px;
+        margin: 6px 0 0;
+    }
+
+    .event-detail li {
+        margin-bottom: 3px;
+    }
+
+    .tag {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        border: 1px solid rgba(251,191,36,0.7);
+        color: #fbbf24;
+        background: rgba(17,24,39,0.9);
+    }
+
+    @media (max-width: 640px) {
+        .event-layout {
+            flex-direction: column;
+        }
+        .event-image {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
 </style>
 </head>
 <body>
 
 <header>
-<h1>이벤트 상세 안내</h1>
-<a href="popup.html">← 돌아가기</a>
+    <h1>이벤트 상세 안내</h1>
+    <a href="popup.html">← 돌아가기</a>
 </header>
 
 <main>
-<div class="section">
-<h2>현장 인증 이벤트</h2>
-<p>방문 사진 업로드 시 한정 스티커 증정.</p>
-</div>
+    <!-- 1. 현장 인증 이벤트 -->
+    <div class="section">
+        <h2>현장 인증 이벤트</h2>
+        <div class="event-layout">
+            <div class="event-image">
+                <!-- 현장 인증 부스 사진 -->
+                <img src="event_checkin.jpg" alt="현장 인증 이벤트 부스 사진">
+            </div>
+            <div class="event-content">
+                <p class="event-summary">
+                    팝업스토어 방문 후 현장 사진을 업로드하면 한정 스티커를 받을 수 있는 참여형 인증 이벤트입니다.
+                </p>
+                <div class="event-detail">
+                    <ul>
+                        <li><strong>참여 방법</strong> : 팝업스토어 내부 또는 외부 포토존에서 사진 촬영 후, 지정 해시태그와 함께 SNS 업로드</li>
+                        <li><strong>제출 확인</strong> : 현장 스태프에게 업로드 화면을 보여주면 인증 완료</li>
+                        <li><strong>증정 굿즈</strong> : 전독시 일러스트가 들어간 한정 스티커 1세트 지급 (소진 시 조기 종료)</li>
+                        <li><strong>유의 사항</strong> : 1인 1회 참여 가능, 비공개 계정은 업로드 화면 캡처로 대체</li>
+                    </ul>
+                    <span class="tag">SNS 인증 이벤트</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="section">
-<h2>굿즈 구매 이벤트</h2>
-<p>특정 금액 이상 구매 시 한정 포토카드 제공.</p>
-</div>
+    <!-- 2. 굿즈 구매 이벤트 -->
+    <div class="section">
+        <h2>굿즈 구매 이벤트</h2>
+        <div class="event-layout">
+            <div class="event-image">
+                <!-- 계산대·굿즈 진열 사진 -->
+                <img src="event_goods.jpg" alt="굿즈 구매 이벤트 사진">
+            </div>
+            <div class="event-content">
+                <p class="event-summary">
+                    일정 금액 이상 굿즈를 구매한 방문객에게만 제공되는 한정 포토카드 이벤트입니다.
+                </p>
+                <div class="event-detail">
+                    <ul>
+                        <li><strong>참여 조건</strong> : 전독시 팝업스토어 내 굿즈 합산 구매 금액 <strong>3만 원 이상</strong></li>
+                        <li><strong>증정 품목</strong> : 주연 캐릭터 일러스트가 들어간 양면 포토카드 1장 랜덤 지급</li>
+                        <li><strong>수량 안내</strong> : 1인 1회 한정, 준비 수량 소진 시 이벤트 자동 종료</li>
+                        <li><strong>추가 정보</strong> : 포토카드는 일반 판매 예정이 없는 이벤트 전용 디자인입니다.</li>
+                    </ul>
+                    <span class="tag">구매 금액별 증정</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="section">
-<h2>스페셜 성우 메시지 상영</h2>
-<p>일정 시간마다 성우 인터뷰 영상 상영.</p>
-</div>
+    <!-- 3. 스페셜 성우 메시지 상영 -->
+    <div class="section">
+        <h2>스페셜 성우 메시지 상영</h2>
+        <div class="event-layout">
+            <div class="event-image">
+                <!-- 상영 공간 / 스크린 사진 -->
+                <img src="event_voice.jpg" alt="성우 메시지 상영 공간 사진">
+            </div>
+            <div class="event-content">
+                <p class="event-summary">
+                    작품 주요 캐릭터를 연기한 성우진의 인사 메시지와 비하인드 토크 영상을 상영하는 특별 상영 이벤트입니다.
+                </p>
+                <div class="event-detail">
+                    <ul>
+                        <li><strong>상영 시간</strong> : 매 정시 10분 단위로 순차 상영 (현장 안내판에서 정확한 시간 확인 가능)</li>
+                        <li><strong>상영 내용</strong> : 캐릭터 인사, 작품에 얽힌 비하인드, 팬들에게 전하는 메시지 등</li>
+                        <li><strong>관람 방법</strong> : 별도 티켓 없이 팝업스토어 방문객이라면 누구나 자유롭게 관람 가능</li>
+                        <li><strong>주의 사항</strong> : 좌석 수가 제한적이므로 입장 인원이 많을 경우 입장이 제한될 수 있습니다.</li>
+                    </ul>
+                    <span class="tag">성우 스페셜 영상</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 </body>
