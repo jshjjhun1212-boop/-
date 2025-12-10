@@ -218,8 +218,31 @@
                 grid-template-columns: 1fr;
             }
         }
+        .goods-preview-container {
+            margin-top: 16px;
+            padding: 14px;
+            border-radius: 16px;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            text-align: center;
+        }
+
+        .goods-preview-container .preview-text {
+            font-size: 12px;
+            color: #d1d5db;
+        }
+
+        .goods-preview-container img {
+            display: none; /* 처음에는 안 보이게 */
+            margin-top: 10px;
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
+
+
 <body>
 
 <header>
@@ -244,7 +267,7 @@
         </section>
 
         <!-- 섹션 1: 팝업스토어 소개 -->
-        <section class="section" id="popup" onclick="location.href='deeppopup.html'" style="cursor: pointer;">>
+        <section class="section" id="popup" onclick="location.href='deeppopup.html'" style="cursor: pointer;">
             <div class="section-title">
                 <h2>1. 팝업스토어 소개</h2>
                 <span>전지적 독자 시점 공식 팝업</span>
@@ -280,7 +303,7 @@
         </section>
 
         <!-- 섹션 2: 대표 굿즈 소개 -->
-        <section class="section" id = "goods" onclick="location.href='deepgoods.html'" style="cursor: pointer;">
+        <section class="section" id="goods">
             <div class="section-title">
                 <h2>2. 대표 굿즈 라인업</h2>
                 <span>일상에서 함께하는 전독시</span>
@@ -291,7 +314,7 @@
             </p>
 
             <div class="goods-grid">
-                <div class="good-card">
+                <div class="good-card" data-image="goods_acrylic.jpg">
                     <h3>캐릭터 아크릴 스탠드</h3>
                     <p>
                         김독자, 유중혁, 주요 동료 캐릭터들을 중심으로 제작된 아크릴 스탠드입니다.
@@ -300,7 +323,7 @@
                     <span class="good-tag">책상 위 데코</span>
                 </div>
 
-                <div class="good-card">
+                <div class="good-card" data-image="goods_calendar.jpg">
                     <h3>2026 미니 캘린더</h3>
                     <p>
                         각 월마다 다른 일러스트와 함께 명대사 또는 키워드를 넣은 탁상용 캘린더입니다.
@@ -309,7 +332,7 @@
                     <span class="good-tag">실용 굿즈</span>
                 </div>
 
-                <div class="good-card">
+                <div class="good-card" data-image="goods_keyring.jpg">
                     <h3>랜덤 키링 &amp; 뱃지</h3>
                     <p>
                         성좌 아이콘, 채널 로고, 도깨비 실루엣 등을 활용한 메탈 키링과 뱃지입니다.
@@ -318,7 +341,7 @@
                     <span class="good-tag">랜덤 컬렉션</span>
                 </div>
 
-                <div class="good-card">
+                <div class="good-card" data-image="goods_artbook.jpg">
                     <h3>아트북 / 일러스트북</h3>
                     <p>
                         메인 포스터와 성좌 일러스트, 초기에 공개되지 않았던 설정 컷 등을 모은 화집 형태의 책입니다.
@@ -327,7 +350,7 @@
                     <span class="good-tag">콜렉터용</span>
                 </div>
 
-                <div class="good-card">
+                <div class="good-card" data-image="goods_photocard.jpg">
                     <h3>포토카드 세트</h3>
                     <p>
                         인물 일러스트와 명장면을 카드 형식으로 모은 세트입니다.
@@ -336,7 +359,7 @@
                     <span class="good-tag">컬렉션 카드</span>
                 </div>
 
-                <div class="good-card">
+                <div class="good-card" data-image="goods_ticket.jpg">
                     <h3>티켓 &amp; 영수증 디자인 소품</h3>
                     <p>
                         채널 입장 티켓이나 시나리오 클리어 영수증을 모티브로 디자인한 종이 소품입니다.
@@ -344,11 +367,15 @@
                     </p>
                     <span class="good-tag">컨셉 소품</span>
                 </div>
+                <div class="goods-preview-container" id="goodsPreview">
+                    <p class="preview-text">굿즈 카드를 클릭하면 사진이 여기 표시됩니다.</p>
+                    <img id="goodsPreviewImg" src="" alt="굿즈 미리보기">
+                </div>
             </div>
         </section>
 
         <!-- 섹션 3: 이벤트 & 이용 안내 -->
-        <section class="section" onclick="location.href='deepevent.html'" style="cursor: pointer;">
+        <section class="section" id = "event" onclick="location.href='deepevent.html'" style="cursor: pointer;">
             <div class="section-title">
                 <h2>3. 이벤트 &amp; 이용 안내</h2>
                 <span>참여형 프로그램</span>
@@ -389,6 +416,26 @@
 <footer>
     이 페이지는 전지적 독자 시점 팝업스토어와 굿즈 구성을 정리한 비공식 안내 페이지입니다.
 </footer>
+<script>
+    const cards = document.querySelectorAll('.good-card');
+    const previewBox = document.getElementById('goodsPreview');
+    const previewImg = document.getElementById('goodsPreviewImg');
+    const previewText = previewBox.querySelector('.preview-text');
 
+    cards.forEach(card => {
+        card.style.cursor = 'pointer';
+
+        card.addEventListener('click', () => {
+            const imgSrc = card.dataset.image;
+            if (!imgSrc) return;
+
+            previewImg.src = imgSrc;
+            previewImg.style.display = 'block';
+            if (previewText) {
+                previewText.style.display = 'none';
+            }
+        });
+    });
+</script>
 </body>
 </html>
