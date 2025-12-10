@@ -1,109 +1,161 @@
-/* ========== 공통: 배경 & 기본 설정 ========== */
+/* ===== 공통 배경 & 레이아웃 ===== */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", system-ui, sans-serif;
 
-    /* css 폴더 안에 있으니까 ../ 로 한 칸 위로 올라가야 함 */
+    /* bg.png 는 루트에 있으므로 ../ 로 한 단계 올라가기 */
     background:
         linear-gradient(
-            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.75),
             rgba(0, 0, 0, 0.9)
         ),
         url("../bg.png");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     color: #e5e7eb;
-    min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
 }
 
-/* 페이지 전체 래퍼 */
-.page-wrap {
-    width: 90%;
-    max-width: 1200px;
-    padding: 40px 0 32px;
+.archive-shell {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* ========== 헤더 ========== */
-header {
-    text-align: left;
-    margin-bottom: 24px;
+/* ===== 상단 헤더 바 (전독시 ARCHIVE) ===== */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    background: rgba(15, 23, 42, 0.96);
+    border-bottom: 1px solid #1f2937;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
-header h1 {
-    margin: 0;
-    font-size: 32px;
+.brand {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.brand-main {
+    font-size: 20px;
+    font-weight: 700;
     color: #fbbf24;
 }
 
-header p {
-    margin-top: 8px;
+.brand-sub {
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    color: #e5e7eb;
+}
+
+.top-back-btn {
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid #4b5563;
+    color: #e5e7eb;
+    text-decoration: none;
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.top-back-btn:hover {
+    border-color: #fbbf24;
+    color: #fbbf24;
+}
+
+/* ===== 중앙 컨텐츠 공통 ===== */
+.archive-main {
+    max-width: 1120px;
+    margin: 24px auto 40px;
+    padding: 0 24px 40px;
+}
+
+/* 머리말 영역 */
+.intro-header {
+    margin-bottom: 20px;
+}
+
+.system-pill {
+    display: inline-block;
+    font-size: 11px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.8);
+    color: #cbd5f5;
+    margin-bottom: 10px;
+}
+
+.intro-title {
+    margin: 0 0 6px;
+    font-size: 26px;
+    color: #fbbf24;
+}
+
+.intro-lead {
+    margin: 0 0 10px;
     font-size: 14px;
     color: #cbd5f5;
 }
 
-.back-link {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 13px;
-    color: #93c5fd;
-    text-decoration: none;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-/* ========== 섹션1: 작품 기본 정보 카드 ========== */
-
-.info-section {
-    background: rgba(2, 6, 23, 0.93);
-    border: 1px solid #334155;
+/* 공통 카드 스타일 */
+.card {
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid #374151;
     border-radius: 20px;
-    padding: 28px 28px 30px;
-    margin-bottom: 24px;
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.7);
+    padding: 24px 26px 28px;
+    margin-bottom: 22px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
+}
 
+.card-title {
+    margin: 0 0 6px;
+    font-size: 20px;
+    color: #fbbf24;
+}
+
+.card-caption {
+    margin: 0 0 14px;
+    font-size: 13px;
+    color: #cbd5f5;
+}
+
+/* ===== 카드 1: 작품 기본 정보 ===== */
+.info-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.5fr);
-    gap: 26px;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 22px;
     align-items: stretch;
 }
 
-.cover-placeholder {
-    background: radial-gradient(circle at top, #1f2937, #020617);
+.cover-box {
     border-radius: 18px;
-    padding: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(circle at top, #1f2937, #020617);
 }
 
 .cover-image {
     width: 100%;
-    height: auto;
-    border-radius: 14px;
+    height: 100%;
+    display: block;
     object-fit: cover;
 }
 
-.info-section h2 {
-    margin: 0 0 10px;
-    font-size: 24px;
-    color: #fbbf24;
+.info-text p {
+    margin: 4px 0;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .tag-list {
-    margin: 6px 0 12px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin: 4px 0 10px;
 }
 
 .tag {
@@ -119,70 +171,47 @@ header p {
 .meta {
     font-size: 13px;
     color: #9ca3af;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
 }
 
 .one-line {
-    margin: 8px 0 10px;
+    margin: 6px 0 8px;
     font-size: 15px;
-    color: #fbbf24;
+    color: #fef3c7;
 }
 
-/* ========== 섹션2: 작품 분위기 / 핵심 테마 ========== */
-
-.theme-section {
-    background: rgba(2, 6, 23, 0.93);
-    border: 1px solid #334155;
-    border-radius: 20px;
-    padding: 24px 24px 26px;
-    margin-bottom: 24px;
-    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.7);
-}
-
-.theme-section h2 {
-    margin: 0 0 8px;
-    font-size: 24px;
-    color: #fbbf24;
-}
-
-.section-desc {
-    margin: 0 0 18px;
-    font-size: 14px;
-    color: #cbd5f5;
-}
-
+/* ===== 카드 2: 분위기 / 핵심 테마 ===== */
 .theme-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: 18px;
 }
 
 .theme-card {
     background: #020617;
-    border-radius: 18px;
-    border: 1px solid #374151;
-    padding: 14px 14px 18px;
+    border-radius: 16px;
+    border: 1px solid #1f2937;
+    padding: 14px 14px 16px;
     display: flex;
     flex-direction: column;
-    transition: 0.2s;
 }
 
-.theme-card:hover {
-    border-color: #fbbf24;
-    transform: translateY(-4px);
+.theme-img-wrap {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .theme-img {
     width: 100%;
     height: auto;
-    border-radius: 14px;
     display: block;
     object-fit: cover;
-    margin-bottom: 10px;
 }
 
 .theme-card h3 {
-    margin: 4px 0 8px;
+    margin: 2px 0 6px;
     font-size: 15px;
     color: #fbbf24;
 }
@@ -190,64 +219,77 @@ header p {
 .theme-card p {
     margin: 0;
     font-size: 13px;
+    line-height: 1.55;
     color: #d1d5db;
 }
 
-/* ========== 섹션3: 타임라인 ========== */
-
+/* ===== 카드 3: 타임라인 ===== */
 .timeline {
-    margin-top: 16px;
-    display: grid;
-    gap: 16px;
+    margin-top: 6px;
+    border-left: 2px solid #4b5563;
+    padding-left: 18px;
 }
 
 .step {
-    background: rgba(15, 23, 42, 0.9);
-    border-radius: 16px;
-    border: 1px solid #374151;
-    padding: 14px 16px 16px;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 14px;
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.step:last-child {
+    margin-bottom: 0;
 }
 
 .step-badge {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #1d4ed8;
-    color: #e5e7eb;
+    position: absolute;
+    left: -31px;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: #fbbf24;
+    color: #111827;
+    font-size: 11px;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    font-weight: bold;
 }
 
 .step-title {
-    font-size: 15px;
-    color: #fbbf24;
+    font-size: 14px;
+    font-weight: 700;
     margin-bottom: 4px;
+    color: #e5e7eb;
 }
 
 .step-text {
-    grid-column: 2 / 3;
     font-size: 13px;
-    color: #d1d5db;
+    color: #cbd5f5;
+    line-height: 1.6;
 }
 
-/* ========== 푸터 ========== */
-footer {
-    margin-top: 8px;
+/* 푸터 */
+.intro-footer {
+    text-align: right;
     font-size: 11px;
     color: #9ca3af;
-    text-align: right;
+    margin-top: 6px;
 }
 
-/* ========== 반응형 ========== */
-@media (max-width: 900px) {
-    .info-section {
+/* ===== 반응형 ===== */
+@media (max-width: 960px) {
+    .archive-main {
+        padding: 0 16px 32px;
+    }
+
+    .info-layout {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 780px) {
+    .top-bar {
+        padding: 10px 16px;
     }
 
     .theme-grid {
@@ -255,20 +297,12 @@ footer {
     }
 }
 
-@media (max-width: 600px) {
-    .page-wrap {
-        width: 94%;
-    }
-
+@media (max-width: 560px) {
     .theme-grid {
         grid-template-columns: 1fr;
     }
 
-    .step {
-        grid-template-columns: 1fr;
-    }
-
-    .step-badge {
-        margin-bottom: 6px;
+    .intro-title {
+        font-size: 22px;
     }
 }

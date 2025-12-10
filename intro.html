@@ -3,131 +3,162 @@
 <head>
     <meta charset="UTF-8" />
     <title>전지적 독자 시점 – 작품 소개</title>
-<!-- intro.css 스타일 불러오기 -->
     <link rel="stylesheet" href="css/intro.css">
 </head>
 <body>
-    <div class="page-wrap">
-        <header>
-            <div>
-                <h1>작품 소개</h1>
-                <p>“전지적 독자 시점”이 어떤 작품인지 3가지 관점으로 정리한 페이지</p>
+    <div class="archive-shell">
+        <!-- 상단 검은 헤더 바 -->
+        <div class="top-bar">
+            <div class="brand">
+                <span class="brand-main">전독시</span>
+                <span class="brand-sub">ARCHIVE</span>
             </div>
-            <a href="index.html" class="back-link">← 메인으로</a>
-        </header>
-
-        <!-- 섹션 1: 작품 기본 정보 -->
-        <section class="info-section">
-            <div class="cover-placeholder">
-                <img src="cover-main.jpg" alt="전지적 독자 시점 표지" class="cover-image">
-            </div>
-            <div>
-                <h2>작품 기본 정보</h2>
-                <div class="tag-list">
-                    <span class="tag">현대 판타지</span>
-                    <span class="tag">재난 / 생존</span>
-                    <span class="tag">메타픽션</span>
-                </div>
-                <p class="meta">
-                    원작 소설: 슬리핑나인 · 웹툰 작가: Sing N Song · 연재 플랫폼: 네이버 웹툰
-                </p>
-                <p class="one-line">
-                    “단 한 명의 완독 독자만이, 멸망 시나리오를 이미 알고 있다.”
-                </p>
-                <p>
-                    평범한 회사원 김독자는 10년 동안 단 한 편의 연재 소설만 꾸준히 읽어 온 ‘유일한 독자’다.
-                    어느 날, 그 소설 속 멸망 시나리오가 현실이 되면서 김독자는 자신이 알고 있는
-                    모든 전개를 무기로 삼아 새로운 세계에 개입하기 시작한다.
-                </p>
-            </div>
-            
-        </section>
-
-        <!-- 섹션 2 : 작품 분위기 / 핵심 테마 -->
-        <section class="theme-section">
-        <h2>작품 분위기 · 핵심 테마</h2>
-        <p class="section-desc">
-            전지적 독자 시점이 주는 느낌을 세 가지 키워드로 나누어 정리했다.
-        </p>
-
-        <div class="theme-grid">
-
-            <!-- 테마 1 -->
-            <div class="theme-card">
-            <img src="theme-1-survival.jpg" alt="재난 속 도시 장면" class="theme-img">
-            <h3>① 재난 속에서 살아남는 사람들</h3>
-            <p>
-                평범한 도시가 ‘시나리오’라는 규칙에 따라 붕괴되고 다시 세워진다.
-                사람들은 생존을 위해 서로를 의심하면서도,
-                동시에 연대와 선택의 순간을 맞이한다.
-            </p>
-            </div>
-
-            <!-- 테마 2 -->
-            <div class="theme-card">
-            <img src="theme-2-meta.jpg" alt="독자가 주인공이 되는 메타 장면" class="theme-img">
-            <h3>② 독자가 주인공이 된 메타 세계</h3>
-            <p>
-                김독자는 “이 세계를 이미 읽어본 사람”이라는 점에서 누구보다 특별하다.
-                독자와 등장인물, 작가와 세계의 경계가 흐려지는
-                독특한 메타 구조가 작품의 핵심이다.
-            </p>
-            </div>
-
-            <!-- 테마 3 -->
-            <div class="theme-card">
-            <img src="theme-3-action.jpg" alt="긴장감 있는 전투 장면" class="theme-img">
-            <h3>③ 긴장감 있는 연출과 액션</h3>
-            <p>
-                제한 시간, 선택지, 조건부 보상과 같은 게임적 장치를 활용해
-                매 장면이 클라이맥스처럼 전개된다.
-                전투뿐 아니라 인물의 감정 변화도 강하게 대비된다.
-            </p>
-            </div>
-
+            <a href="index.html" class="top-back-btn">← 메인 메뉴로 돌아가기</a>
         </div>
-        </section>
 
+        <!-- 중앙 컨텐츠 영역 -->
+        <main class="archive-main">
 
-        <!-- 섹션 3: 스토리 시작 흐름 (타임라인) -->
-        <section>
-            <h2>스토리 시작 흐름 한눈에 보기</h2>
-            <p>처음 몇 화의 전개를 세 단계로 요약하면 다음과 같다.</p>
-            <div class="timeline">
-                <div class="step">
-                    <div class="step-badge">1</div>
-                    <div class="step-title">STEP 1 — 유일한 완독 독자, 김독자</div>
-                    <div class="step-text">
-                        회사원 김독자는 3,000회가 넘는 회차를 단 한 번도 놓치지 않고 읽어 온
-                        웹소설 「멸망한 세계에서 살아남는 세 가지 방법」의 유일한 완독 독자다.
-                        하지만 소설이 완결되려는 순간, 작가는 이해할 수 없는 메시지를 남긴 채 연재를 종료한다.
+            <!-- 페이지 머리말 (작은 시스템 배지 + 제목) -->
+            <header class="intro-header">
+                <p class="system-pill">[작품] 전지적 독자 시점 소개 페이지입니다.</p>
+                <h1 class="intro-title">작품 소개 & 세계관 한눈에 보기</h1>
+                <p class="intro-lead">
+                    이 페이지에서는 <strong>“전지적 독자 시점”</strong>이 어떤 작품인지,
+                    기본 정보 · 작품 분위기 · 스토리 시작 흐름을 순서대로 정리했습니다.
+                </p>
+            </header>
+
+            <!-- 카드 1: 작품 기본 정보 -->
+            <section class="card info-card">
+                <h2 class="card-title">1. 작품 기본 정보</h2>
+                <p class="card-caption">전독시의 장르, 작가, 한 줄 요약을 정리한 기본 소개입니다.</p>
+
+                <div class="info-layout">
+                    <div class="cover-box">
+                        <img src="cover-main.jpg" alt="전지적 독자 시점 표지" class="cover-image">
+                    </div>
+
+                    <div class="info-text">
+                        <div class="tag-list">
+                            <span class="tag">현대 판타지</span>
+                            <span class="tag">재난 / 생존</span>
+                            <span class="tag">메타픽션</span>
+                        </div>
+
+                        <p class="meta">
+                            원작 소설: 슬리핑나인 · 웹툰 작가: Sing N Song · 연재 플랫폼: 네이버 웹툰
+                        </p>
+
+                        <p class="one-line">
+                            “단 한 명의 완독 독자만이, 멸망 시나리오를 이미 알고 있다.”
+                        </p>
+
+                        <p>
+                            평범한 회사원 김독자는 10년 동안 단 한 편의 연재 소설만 꾸준히 읽어 온
+                            ‘유일한 독자’다. 어느 날, 그 소설 속 멸망 시나리오가 현실이 되면서
+                            김독자는 자신이 알고 있는 모든 전개를 무기로 삼아 새로운 세계에
+                            개입하기 시작한다.
+                        </p>
                     </div>
                 </div>
-                <div class="step">
-                    <div class="step-badge">2</div>
-                    <div class="step-title">STEP 2 — 소설 속 멸망 시나리오가 현실화</div>
-                    <div class="step-text">
-                        평범하던 지하철 안, 하늘에 거대한 메시지가 떠오르고
-                        소설에서만 보던 ‘도깨비’가 나타나 승객들을 대상으로 생존 게임을 선언한다.
-                        김독자는 자신이 읽어 온 소설의 내용이 그대로 현실이 되고 있음을 깨닫는다.
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-badge">3</div>
-                    <div class="step-title">STEP 3 — 독자가 세계에 개입하기 시작</div>
-                    <div class="step-text">
-                        앞으로 일어날 사건들을 알고 있는 유일한 사람으로서,
-                        김독자는 소설 속 주인공 유중혁과는 다른 길을 선택하기 시작한다.
-                        “이미 알고 있는 미래”를 바탕으로, 자신과 주변 인물들을 살리기 위한
-                        독자만의 선택지가 펼쳐진다.
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <footer>
-            © 비공식 전지적 독자 시점 작품 소개 페이지
-        </footer>
+            <!-- 카드 2: 작품 분위기 · 핵심 테마 -->
+            <section class="card theme-card-wrap">
+                <h2 class="card-title">2. 작품 분위기 · 핵심 테마</h2>
+                <p class="card-caption">
+                    전지적 독자 시점이 주는 느낌을 세 가지 키워드로 나누어 정리했다.
+                </p>
+
+                <div class="theme-grid">
+                    <!-- ① 재난 속에서 살아남는 사람들 -->
+                    <article class="theme-card">
+                        <div class="theme-img-wrap">
+                            <img src="theme-1-survival.jpg" alt="재난 속에서 살아남는 사람들" class="theme-img">
+                        </div>
+                        <h3>① 재난 속에서 살아남는 사람들</h3>
+                        <p>
+                            평범한 도시가 ‘시나리오’라는 규칙에 따라 무너지고 다시 세워진다.
+                            사람들은 생존을 위해 서로를 의심하면서도, 동시에 연대와 선택의
+                            순간을 맞이한다.
+                        </p>
+                    </article>
+
+                    <!-- ② 독자가 주인공이 된 메타 세계 -->
+                    <article class="theme-card">
+                        <div class="theme-img-wrap">
+                            <img src="theme-2-meta.jpg" alt="독자가 주인공이 된 메타 세계" class="theme-img">
+                        </div>
+                        <h3>② 독자가 주인공이 된 메타 세계</h3>
+                        <p>
+                            김독자는 “이 세계를 이미 읽어 본 사람”이라는 점에서 누구보다도 특별하다.
+                            독자와 등장인물, 작가와 세계의 경계가 계속 뒤섞이는 독특한 메타 구조가
+                            작품의 핵심이다.
+                        </p>
+                    </article>
+
+                    <!-- ③ 긴장감 있는 연출과 액션 -->
+                    <article class="theme-card">
+                        <div class="theme-img-wrap">
+                            <img src="theme-3-action.jpg" alt="긴장감 있는 연출과 액션" class="theme-img">
+                        </div>
+                        <h3>③ 긴장감 있는 연출과 액션</h3>
+                        <p>
+                            제한 시간, 선택지, 조건부 보상과 같은 게임적인 장치를 활용해
+                            매 장면이 클라이맥스처럼 느껴지도록 연출된다. 전투 장면뿐 아니라
+                            인물들의 감정 변화도 강하게 대비된다.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 카드 3: 스토리 시작 흐름 타임라인 -->
+            <section class="card">
+                <h2 class="card-title">3. 스토리 시작 흐름 한눈에 보기</h2>
+                <p class="card-caption">
+                    처음 몇 화의 전개를 세 단계로 요약하면 다음과 같다.
+                </p>
+
+                <div class="timeline">
+                    <div class="step">
+                        <div class="step-badge">1</div>
+                        <div class="step-title">STEP 1 — 유일한 완독 독자, 김독자</div>
+                        <div class="step-text">
+                            회사원 김독자는 3,000회가 넘는 회차를 단 한 번도 놓치지 않고 읽어 온
+                            웹소설 「멸망한 세계에서 살아남는 세 가지 방법」의 유일한 완독 독자다.
+                            하지만 소설이 완결되려는 순간, 작가는 이해할 수 없는 메시지를 남긴 채
+                            연재를 종료한다.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-badge">2</div>
+                        <div class="step-title">STEP 2 — 소설 속 멸망 시나리오가 현실화</div>
+                        <div class="step-text">
+                            평범하던 지하철 안, 하늘에 거대한 메시지가 떠오르고 소설에서만 보던
+                            ‘도깨비’가 나타나 승객들을 대상으로 생존 게임을 선언한다.
+                            김독자는 자신이 읽어 온 소설의 내용이 그대로 현실이 되고 있음을 깨닫는다.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-badge">3</div>
+                        <div class="step-title">STEP 3 — 독자가 세계에 개입하기 시작</div>
+                        <div class="step-text">
+                            앞으로 일어날 사건들을 알고 있는 유일한 사람으로서,
+                            김독자는 소설 속 주인공 유중혁과는 다른 길을 선택하기 시작한다.
+                            “이미 알고 있는 미래”를 바탕으로 자신과 주변 인물들을 살리기 위한
+                            독자만의 선택지가 펼쳐진다.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="intro-footer">
+                © 비공식 전지적 독자 시점 작품 소개 페이지
+            </footer>
+        </main>
     </div>
 </body>
 </html>
