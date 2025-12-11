@@ -16,20 +16,25 @@
 <h1>인물 관계도</h1>
 
 <section id="relation-map">
+
+    <!-- 관계 범례 -->
     <div class="relation-legend">
-    <span class="legend friendly">우호 관계</span>
-    <span class="legend normal">협력 / 중립</span>
-    <span class="legend hostile">적대 관계</span>
-</div>
+        <span class="legend friendly">우호 관계</span>
+        <span class="legend normal">협력 / 중립</span>
+        <span class="legend hostile">적대 관계</span>
+    </div>
 
     <div class="relation-tree">
 
         <!-- 중심 인물 -->
-        <div class="node center main">
-            <a href="character-detail.html#kimdokja">김독자</a>
+        <div class="branch-row center-row">
+            <div class="relation-link main">
+                <div class="node main"><a href="character-detail.html#kimdokja">김독자</a></div>
+            </div>
         </div>
 
         <!-- 1차 동료 -->
+        <h2 class="sub-title">1차 동료</h2>
         <div class="branch-row">
 
             <div class="relation-link friendly">
@@ -55,33 +60,33 @@
         </div>
 
         <!-- 2차 동료 -->
+        <h2 class="sub-title">2차 동료</h2>
         <div class="branch-row">
 
             <div class="relation-link friendly">
                 <div class="node"><a href="character-detail.html#leegilyoung">이길영</a></div>
-                <p class="label small">보호 대상</p>
+                <p class="label">보호 대상</p>
             </div>
 
             <div class="relation-link friendly">
                 <div class="node"><a href="character-detail.html#yoosanga">유상아</a></div>
-                <p class="label small">협력</p>
+                <p class="label">협력</p>
             </div>
 
             <div class="relation-link friendly">
                 <div class="node"><a href="character-detail.html#jungheewon">정희원</a></div>
-                <p class="label small">구조 · 동료</p>
+                <p class="label">동료 · 구호</p>
             </div>
 
             <div class="relation-link friendly">
                 <div class="node"><a href="character-detail.html#shinyuseung">신유승</a></div>
-                <p class="label small">보호 대상</p>
+                <p class="label">보호 대상</p>
             </div>
 
         </div>
 
         <!-- 동료 간 관계 -->
         <h2 class="sub-title">동료 간 관계</h2>
-
         <div class="branch-row">
 
             <div class="relation-link normal">
@@ -103,12 +108,11 @@
 
         <!-- 적대 관계 -->
         <h2 class="sub-title">적대 관계</h2>
-
         <div class="branch-row">
 
             <div class="relation-link normal">
                 <div class="node"><a href="character-detail.html#gongpildu">공필두</a></div>
-                <p class="label small">초반 대립 → 동맹</p>
+                <p class="label small">초반 대립 → 동료</p>
             </div>
 
             <div class="relation-link hostile">
