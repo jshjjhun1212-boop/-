@@ -1,0 +1,68 @@
+/* 페이지 전체 */
+body {
+    margin: 0;
+    padding: 40px;
+    background: #1a1a1a;
+    color: white;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+/* 섹션 공통 */
+section {
+    background: #222;
+    padding: 30px;
+    margin: 30px 0;
+    border-radius: 15px;
+}
+
+/* 인물 그룹 박스 */
+.group-container {
+    display: flex;
+    gap: 20px;
+}
+
+.group-box {
+    flex: 1;
+    background: #333;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* 등장인물 상세 */
+.character-layout {
+    display: flex;
+    gap: 30px;
+}
+
+.character-list {
+    width: 30%;
+}
+
+.character-card {
+    padding: 12px;
+    background: #333;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.character-card:hover {
+    background: #444;
+}
+
+.character-info {
+    width: 70%;
+    background: #333;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.character-info p {
+    line-height: 1.6;
+}
