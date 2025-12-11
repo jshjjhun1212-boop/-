@@ -1,3 +1,87 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #1f1f1f;
+    color: white;
+    margin: 0;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 상단 네비 */
+.nav {
+    background: #111;
+    padding: 12px 20px;
+    display: flex;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid #333;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* 전체 레이아웃 */
+.character-layout {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* 왼쪽 이름 리스트 고정 */
+.character-list {
+    position: sticky;
+    top: 100px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.character-card {
+    padding: 12px 14px;
+    background: #2d2d2d;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #444;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.character-card:hover {
+    background: #444;
+    transform: translateY(-2px);
+}
+
+/* 오른쪽 카드 영역 */
+.character-info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* 인물 카드 */
+.person-block {
+    background: #2a2a2a;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+    line-height: 1.7;
+}
+
+.person-block h3 {
+    color: #ffd56b;
+    margin-bottom: 12px;
+}
 /* ---------------------- */
 /* 관계도 범례 스타일     */
 /* ---------------------- */
