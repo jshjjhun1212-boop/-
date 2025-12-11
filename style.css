@@ -210,3 +210,10 @@ body {
 .detail-btn:hover {
     background: #ffe17a;
 }
+.character-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
