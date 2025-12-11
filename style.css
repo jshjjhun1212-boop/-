@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: #222;
+    background: #1f1f1f;
     color: white;
     margin: 0;
     font-family: "Noto Sans KR", sans-serif;
@@ -17,8 +17,8 @@ body {
     gap: 20px;
     position: sticky;
     top: 0;
-    border-bottom: 1px solid #333;
     z-index: 999;
+    border-bottom: 1px solid #333;
 }
 
 .nav a {
@@ -26,18 +26,18 @@ body {
     text-decoration: none;
 }
 
-/* 메인 레이아웃 */
+/* 전체 레이아웃 */
 .character-layout {
     display: flex;
     gap: 30px;
     padding: 20px;
 }
 
-/* 왼쪽 고정 목록 */
+/* 왼쪽 이름 리스트 고정 */
 .character-list {
     position: sticky;
-    top: 90px; /* 메뉴바 피해서 고정 */
-    width: 190px;
+    top: 100px;
+    width: 180px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -45,23 +45,22 @@ body {
 
 .character-card {
     padding: 12px 14px;
-    background: #333;
-    border-radius: 10px;
-    border: 1px solid #444;
+    background: #2d2d2d;
+    color: white;
+    border-radius: 8px;
     text-align: center;
+    border: 1px solid #444;
     cursor: pointer;
     text-decoration: none;
-    color: white;
-    font-weight: 600;
     transition: 0.2s;
 }
 
 .character-card:hover {
-    background: #555;
+    background: #444;
     transform: translateY(-2px);
 }
 
-/* 오른쪽 인물 카드 */
+/* 오른쪽 카드 영역 */
 .character-info-container {
     flex: 1;
     display: flex;
@@ -69,16 +68,107 @@ body {
     gap: 35px;
 }
 
+/* 인물 카드 */
 .person-block {
     background: #2a2a2a;
     padding: 25px;
     border-radius: 12px;
     border: 1px solid #444;
-    box-shadow: 0px 4px 11px rgba(0,0,0,0.35);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
     line-height: 1.7;
 }
 
 .person-block h3 {
-    color: #ffdf7f;
-    margin-bottom: 10px;
+    color: #ffd56b;
+    margin-bottom: 12px;
+}
+/* 관계도 기본 구조 */
+.relation-tree {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+}
+
+/* 노드 배치 */
+.branch-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.node a {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #303030;
+    color: #e8e6df;
+    border-radius: 10px;
+    border: 1px solid #555;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.node a:hover {
+    background: #444;
+    transform: translateY(-3px);
+}
+
+/* 김독자 강조 */
+.node.main a {
+    background: #ffd56b;
+    color: #1c1c1c !important;
+    font-weight: bold;
+}
+
+/* 관계 라벨 */
+.label {
+    margin-top: 6px;
+    color: #bbbbbb;
+    text-align: center;
+    font-size: 14px;
+}
+
+.label.small {
+    font-size: 13px;
+}
+
+/* 관계 박스 + 연결선 */
+.relation-link {
+    position: relative;
+    text-align: center;
+}
+
+/* 공통 연결선 */
+.relation-link::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 2px;
+    height: 30px;
+    transform: translateX(-50%);
+}
+
+/* 관계 색깔 */
+
+/* 우호 관계 = 초록 */
+.relation-link.friendly::before {
+    background: #5bd676;
+}
+
+/* 일반 관계 = 노란 */
+.relation-link.normal::before {
+    background: #ffe97f;
+}
+
+/* 적대 관계 = 빨간 */
+.relation-link.hostile::before {
+    background: #ff5c5c;
+}
+
+/* 섹션 제목 */
+.sub-title {
+    color: #ffd56b;
+    text-align: center;
 }

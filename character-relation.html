@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>관계도 페이지</title>
+    <title>인물 관계도</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,11 +13,106 @@
     <a href="character-relation.html">관계도</a>
 </nav>
 
+<h1>인물 관계도</h1>
 
-<h1>등장인물 관계도</h1>
+<section id="relation-map">
+    <div class="relation-tree">
 
-<section id="character-relation">
-    <p>관계도 이미지는 여기에 추가될 예정입니다.</p>
+        <!-- 중심 인물 -->
+        <div class="node center main">
+            <a href="character-detail.html#kimdokja">김독자</a>
+        </div>
+
+        <!-- 1차 동료 -->
+        <div class="branch-row">
+
+            <div class="relation-link friendly">
+                <div class="node"><a href="character-detail.html#yoojung">유중혁</a></div>
+                <p class="label">경쟁 · 협력</p>
+            </div>
+
+            <div class="relation-link friendly">
+                <div class="node"><a href="character-detail.html#leehyun">이현성</a></div>
+                <p class="label">신뢰</p>
+            </div>
+
+            <div class="relation-link friendly">
+                <div class="node"><a href="character-detail.html#hansoo">한수영</a></div>
+                <p class="label">협력</p>
+            </div>
+
+            <div class="relation-link friendly">
+                <div class="node"><a href="character-detail.html#leeji">이지혜</a></div>
+                <p class="label">성장 · 지도</p>
+            </div>
+
+        </div>
+
+        <!-- 2차 동료 -->
+        <div class="branch-row">
+
+            <div class="relation-link friendly">
+                <div class="node"><a href="character-detail.html#leegilyoung">이길영</a></div>
+                <p class="label small">보호 대상</p>
+            </div>
+
+            <div class="relation-link friendly">
+                <div class="node"><a href="character-detail.html#yoosanga">유상아</a></div>
+                <p class="label small">협력</p>
+            </div>
+
+            <div class="relation-link friendly">
+                <div class="node"><a href="character-detail.html#jungheewon">정희원</a></div>
+                <p class="label small">구조 · 동료</p>
+            </div>
+
+            <div class="relation-link friendly">
+                <div class="node"><a href="character-detail.html#shinyuseung">신유승</a></div>
+                <p class="label small">보호 대상</p>
+            </div>
+
+        </div>
+
+        <!-- 동료 간 관계 -->
+        <h2 class="sub-title">동료 간 관계</h2>
+
+        <div class="branch-row">
+
+            <div class="relation-link normal">
+                <div class="node"><a href="character-detail.html#hansoo">한수영</a></div>
+                <p class="label small">↔ 유상아 / 약한 비호감+협력</p>
+            </div>
+
+            <div class="relation-link friendly">
+                <div class="node"><a href="character-detail.html#jungheewon">정희원</a></div>
+                <p class="label small">↔ 유상아 / 친한 동료</p>
+            </div>
+
+            <div class="relation-link normal">
+                <div class="node"><a href="character-detail.html#leegilyoung">이길영</a></div>
+                <p class="label small">↔ 신유승 / 김독자를 두고 경쟁</p>
+            </div>
+
+        </div>
+
+        <!-- 적대 관계 -->
+        <h2 class="sub-title">적대 관계</h2>
+
+        <div class="branch-row">
+
+            <div class="relation-link normal">
+                <div class="node"><a href="character-detail.html#gongpildu">공필두</a></div>
+                <p class="label small">초반 대립 → 동맹</p>
+            </div>
+
+            <div class="relation-link hostile">
+                <div class="node"><a href="character-detail.html#hanmyeongo">한명오</a></div>
+                <p class="label small">초반 적대</p>
+            </div>
+
+        </div>
+
+    </div>
 </section>
 
 </body>
