@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+/* --- [스타일 시스템] --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+    --primary: #00d2d3;        /* 전독시 시그니처 청록 */
+    --neon-cyan: #00eaff;      /* 네온 블루 */
+    --bg-dark: #1a1e21;        /* 전체 배경 */
+    --card-bg: #1e1e2e;        /* 카드 배경 */
+    --text-main: #ffffff;
+    --accent-red: #ff7675;     /* 베댓 강조용 */
+}
+body { 
+    background-color: var(--bg-dark); color: var(--text-main);
+    font-family: 'Noto Sans KR', sans-serif; overflow-x: hidden;
+}
+
+/* --- [1] 시작 화면 (네온 디자인) --- */
+#landing-page {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background-color: #1a1e21;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px;
+    z-index: 9999; text-align: center; transition: opacity 0.8s ease-out;
+}
+
+.neon-title {
+    font-family: 'Roboto', sans-serif; font-size: 4rem; font-weight: 900;
+    line-height: 1.1; text-transform: uppercase; color: #d0ffff;
+    text-shadow: 0 0 10px #00d2ff, 0 0 20px #00d2ff, 0 0 40px #00d2ff, 0 0 80px #0080ff;
+    margin-bottom: 20px;
+}
+
+.neon-subtitle {
+    font-size: 1.1rem; color: #aaa; font-weight: 400;
+    letter-spacing: -0.5px; margin-bottom: 40px;
+}
+
+.btn-start {
+    background: transparent; color: #00eaff; font-size: 1.2rem;
+    font-weight: 700; font-family: 'Roboto', sans-serif;
+    padding: 15px 50px; border: 2px solid #00eaff; border-radius: 50px;
+    cursor: pointer; transition: all 0.3s ease; text-transform: uppercase;
+    letter-spacing: 1px; box-shadow: 0 0 15px rgba(0, 234, 255, 0.2);
+}
+.btn-start:hover {
+    background-color: rgba(0, 234, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 234, 255, 0.6), inset 0 0 10px rgba(0, 234, 255, 0.4);
+    transform: scale(1.05);
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .neon-title { font-size: 2.8rem; }
+    .btn-start { padding: 12px 40px; font-size: 1rem; }
+}
+
+/* --- [2] 메인 리포트 화면 --- */
+#main-app { display: none; max-width: 600px; margin: 0 auto; padding-bottom: 100px; opacity: 0; transition: opacity 1s; }
+
+header { 
+    padding: 20px; border-bottom: 1px solid #333; 
+    display: flex; justify-content: space-between; align-items: center; 
+    position: sticky; top: 0; background: rgba(26, 30, 33, 0.95); z-index: 100;
+}
+
+/* 탭 메뉴 */
+.tabs { display: flex; background: #2d2d3b; padding: 10px; gap: 5px; position: sticky; top: 65px; z-index: 90; }
+.tab-btn { flex: 1; padding: 10px; background: none; border: none; color: #888; cursor: pointer; border-radius: 8px; font-weight: bold;}
+.tab-btn.active { color: var(--primary); background: rgba(0, 210, 211, 0.1); }
+
+/* 섹션 스타일 */
+.section { display: none; padding: 20px; animation: slideUp 0.6s; }
+.section.active { display: block; }
+.card { background: var(--card-bg); padding: 20px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+h3 { border-left: 4px solid var(--primary); padding-left: 10px; color: white; margin-top: 0; }
+
+/* 댓글 롤링 창 (채팅창 스타일) */
+.chat-window { 
+    height: 400px; overflow: hidden; position: relative; 
+    background: #15151f; border-radius: 10px; padding: 15px; border: 1px solid #333; 
+}
+.chat-area { display: flex; flex-direction: column; gap: 12px; }
+
+.msg { 
+    background: #2b2b3b; padding: 12px; border-radius: 8px; 
+    font-size: 0.95rem; line-height: 1.5; color: #ddd; 
+    animation: fadeIn 0.5s; border-left: 3px solid transparent; 
+}
+.msg.best { border-left: 3px solid var(--accent-red); background: #352b2b; } /* 베스트 댓글 */
+
+.user-id { font-size: 0.8rem; color: #888; font-weight: bold; display: block; margin-bottom: 4px;}
+
+/* 링크 버튼 디자인 */
+.link-grid { display: grid; grid-template-columns: 1fr; gap: 15px; } 
+.link-btn { 
+    background: #2b2b3b; color: white; padding: 20px; border-radius: 12px; 
+    text-decoration: none; display: flex; align-items: center; justify-content: space-between;
+    border: 1px solid #444; transition: all 0.2s;
+}
+.link-btn:hover { background: var(--primary); color: black; border-color: var(--primary); transform: translateX(5px); }
+.link-icon { font-size: 1.5rem; margin-right: 15px; }
+.link-text { text-align: left; flex: 1; }
+.link-title { font-weight: bold; font-size: 1.1rem; display: block; }
+.link-desc { font-size: 0.8rem; opacity: 0.7; }
+
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
