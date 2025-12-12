@@ -8,121 +8,135 @@
 <body>
 
 <nav class="nav">
-    <a href="character-group.html">인물 그룹</a>
-    <a href="character-detail.html">상세 정보</a>
-    <a href="character-relation.html">관계도</a>
+    <a class="nav-btn" href="character-group.html">인물 그룹</a>
+    <a class="nav-btn" href="character-detail.html">상세 정보</a>
+    <a class="nav-btn" href="character-relation.html">관계도</a>
 </nav>
 
 <h1>인물 관계도</h1>
 
-<section id="relation-map">
+<!-- 관계선 색 설명 -->
+<div class="relation-legend">
+    <div class="legend friendly">우호 / 협력 관계</div>
+    <div class="legend normal">일반 / 중립 관계</div>
+    <div class="legend hostile">적대 관계</div>
+</div>
 
-    <!-- 관계 범례 -->
-    <div class="relation-legend">
-        <span class="legend friendly">우호 관계</span>
-        <span class="legend normal">협력 / 중립</span>
-        <span class="legend hostile">적대 관계</span>
+<section class="relation-map">
+
+    <!-- 중앙 주인공 -->
+    <div class="center-node">
+        <a href="character-detail.html#kimdokja" class="relation-card">
+            <img src="images/kim.png.png">
+            <h3>김독자</h3>
+        </a>
     </div>
 
-    <div class="relation-tree">
+    <!-- 1단계: 바로 연결되는 주요 인물 -->
+    <div class="relation-row">
 
-        <!-- 중심 인물 -->
-        <div class="branch-row center-row">
-            <div class="relation-link main">
-                <div class="node main"><a href="character-detail.html#kimdokja">김독자</a></div>
-            </div>
+        <div class="relation-item friendly">
+            <div class="line"></div>
+            <a href="character-detail.html#yoojung" class="relation-card">
+                <img src="images/yoo.png.png">
+                <h3>유중혁</h3>
+            </a>
+            <p class="label">협력·라이벌</p>
         </div>
 
-        <!-- 1차 동료 -->
-        <h2 class="sub-title">1차 동료</h2>
-        <div class="branch-row">
-
-            <div class="relation-link friendly">
-                <div class="node"><a href="character-detail.html#yoojung">유중혁</a></div>
-                <p class="label">경쟁 · 협력</p>
-            </div>
-
-            <div class="relation-link friendly">
-                <div class="node"><a href="character-detail.html#leehyun">이현성</a></div>
-                <p class="label">신뢰</p>
-            </div>
-
-            <div class="relation-link friendly">
-                <div class="node"><a href="character-detail.html#hansoo">한수영</a></div>
-                <p class="label">협력</p>
-            </div>
-
-            <div class="relation-link friendly">
-                <div class="node"><a href="character-detail.html#leeji">이지혜</a></div>
-                <p class="label">성장 · 지도</p>
-            </div>
-
+        <div class="relation-item friendly">
+            <div class="line"></div>
+            <a href="character-detail.html#leehyun" class="relation-card">
+                <img src="images/Lee.png.png">
+                <h3>이현성</h3>
+            </a>
+            <p class="label">신뢰</p>
         </div>
 
-        <!-- 2차 동료 -->
-        <h2 class="sub-title">2차 동료</h2>
-        <div class="branch-row">
-
-            <div class="relation-link friendly">
-                <div class="node"><a href="character-detail.html#leegilyoung">이길영</a></div>
-                <p class="label">보호 대상</p>
-            </div>
-
-            <div class="relation-link friendly">
-                <div class="node"><a href="character-detail.html#yoosanga">유상아</a></div>
-                <p class="label">협력</p>
-            </div>
-
-            <div class="relation-link friendly">
-                <div class="node"><a href="character-detail.html#jungheewon">정희원</a></div>
-                <p class="label">동료 · 구호</p>
-            </div>
-
-            <div class="relation-link friendly">
-                <div class="node"><a href="character-detail.html#shinyuseung">신유승</a></div>
-                <p class="label">보호 대상</p>
-            </div>
-
+        <div class="relation-item normal">
+            <div class="line"></div>
+            <a href="character-detail.html#hansoo" class="relation-card">
+                <img src="images/han.png.png">
+                <h3>한수영</h3>
+            </a>
+            <p class="label">협력</p>
         </div>
 
-        <!-- 동료 간 관계 -->
-        <h2 class="sub-title">동료 간 관계</h2>
-        <div class="branch-row">
-
-            <div class="relation-link normal">
-                <div class="node"><a href="character-detail.html#hansoo">한수영</a></div>
-                <p class="label small">↔ 유상아 / 약한 비호감+협력</p>
-            </div>
-
-            <div class="relation-link friendly">
-                <div class="node"><a href="character-detail.html#jungheewon">정희원</a></div>
-                <p class="label small">↔ 유상아 / 친한 동료</p>
-            </div>
-
-            <div class="relation-link normal">
-                <div class="node"><a href="character-detail.html#leegilyoung">이길영</a></div>
-                <p class="label small">↔ 신유승 / 김독자를 두고 경쟁</p>
-            </div>
-
+        <div class="relation-item normal">
+            <div class="line"></div>
+            <a href="character-detail.html#yoosanga" class="relation-card">
+                <img src="images/yoosang.png.png">
+                <h3>유상아</h3>
+            </a>
+            <p class="label">협력</p>
         </div>
 
-        <!-- 적대 관계 -->
-        <h2 class="sub-title">적대 관계</h2>
-        <div class="branch-row">
+        <div class="relation-item friendly">
+            <div class="line"></div>
+            <a href="character-detail.html#jungheewon" class="relation-card">
+                <img src="images/jung.png.png">
+                <h3>정희원</h3>
+            </a>
+            <p class="label">우호</p>
+        </div>
 
-            <div class="relation-link normal">
-                <div class="node"><a href="character-detail.html#gongpildu">공필두</a></div>
-                <p class="label small">초반 대립 → 동료</p>
-            </div>
+        <div class="relation-item friendly">
+            <div class="line"></div>
+            <a href="character-detail.html#shinyuseung" class="relation-card">
+                <img src="images/shinyoo.png.png">
+                <h3>신유승</h3>
+            </a>
+            <p class="label">보호 대상</p>
+        </div>
 
-            <div class="relation-link hostile">
-                <div class="node"><a href="character-detail.html#hanmyeongo">한명오</a></div>
-                <p class="label small">초반 적대</p>
-            </div>
+        <div class="relation-item friendly">
+            <div class="line"></div>
+            <a href="character-detail.html#leegilyoung" class="relation-card">
+                <img src="images/leegil.png.png">
+                <h3>이길영</h3>
+            </a>
+            <p class="label">보호 대상</p>
+        </div>
 
+        <div class="relation-item hostile">
+            <div class="line"></div>
+            <a href="character-detail.html#gongpildu" class="relation-card">
+                <img src="images/gong.png.png">
+                <h3>공필두</h3>
+            </a>
+            <p class="label">초기 적대 → 후 협력</p>
+        </div>
+
+        <div class="relation-item hostile">
+            <div class="line"></div>
+            <a href="character-detail.html#hanmyeongo" class="relation-card">
+                <img src="images/janmeong.png.png">
+                <h3>한명오</h3>
+            </a>
+            <p class="label">적대</p>
         </div>
 
     </div>
+
+    <!-- 이길영 ↔ 신유승 경쟁 관계 -->
+    <div class="sub-relation">
+        <div class="relation-item normal">
+            <a href="character-detail.html#leegilyoung" class="relation-card small">
+                <img src="images/leegil.png.png">
+                <h4>이길영</h4>
+            </a>
+        </div>
+
+        <div class="competition-label">김독자의 더 아끼는 동생 경쟁</div>
+
+        <div class="relation-item normal">
+            <a href="character-detail.html#shinyuseung" class="relation-card small">
+                <img src="images/shinyoo.png.png">
+                <h4>신유승</h4>
+            </a>
+        </div>
+    </div>
+
 </section>
 
 </body>

@@ -462,3 +462,78 @@ body {
     margin-top: 8px;
     color: #ffd86a;
 }
+/* 관계도 공통 카드 스타일 */
+.relation-card {
+    width: 150px;
+    padding: 10px;
+    background: #1e1e1e;
+    border: 2px solid #666;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: 0.25s;
+}
+
+.relation-card:hover {
+    background: #333;
+    transform: translateY(-4px);
+}
+
+.relation-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.relation-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.center-node {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.relation-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* 작은 카드 */
+.relation-card.small {
+    width: 110px;
+}
+
+.sub-relation {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.competition-label {
+    color: #ffd86a;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 관계 색상 */
+.friendly .relation-card { border-color: #5bd676; }
+.normal .relation-card   { border-color: #ffe97f; }
+.hostile .relation-card  { border-color: #ff5c5c; }
