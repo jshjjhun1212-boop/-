@@ -370,3 +370,95 @@ body {
     color: #ffd76b;
     margin-top: 0;
 }
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #1f1f1f;
+    color: white;
+    margin: 0;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 상단 네비 */
+.nav {
+    background: #111;
+    padding: 14px 25px;
+    display: flex;
+    gap: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid #333;
+}
+
+.nav-btn {
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    background: #222;
+    transition: 0.25s;
+}
+
+.nav-btn:hover {
+    background: #444;
+}
+
+/* 그룹 섹션 */
+.group-section {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* 그룹 카드 */
+.group-card {
+    background: #242424;
+    border: 1px solid #444;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+}
+
+.group-card h2 {
+    color: #ffd86a;
+    margin-top: 0;
+}
+
+/* 인물 미니 카드 */
+.mini-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 15px;
+}
+
+.mini-person-card {
+    width: 150px;
+    background: #1f1f1f;
+    border: 1px solid #333;
+    border-radius: 12px;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    color: white;
+    transition: 0.25s;
+}
+
+.mini-person-card:hover {
+    background: #333;
+    transform: translateY(-4px);
+}
+
+.mini-person-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.mini-person-card h3 {
+    margin-top: 8px;
+    color: #ffd86a;
+}

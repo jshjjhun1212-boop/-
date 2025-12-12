@@ -1,107 +1,108 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>인물 그룹 소개</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>인물 그룹 소개</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="group-page">
+<!-- 상단 네비게이션 -->
+<nav class="nav">
+    <a class="nav-btn" href="character-group.html">인물 그룹</a>
+    <a class="nav-btn" href="character-detail.html">상세 정보</a>
+    <a class="nav-btn" href="character-relation.html">관계도</a>
+</nav>
 
-  <h1 class="group-title">인물 그룹 소개</h1>
+<h1>인물 그룹 소개</h1>
 
-  <!-- 🟡 주인공 그룹 -->
-  <section class="group-section">
-    <h2>주인공 그룹</h2>
-    <p class="group-desc">스토리를 이끌고 주요 결정을 내리는 핵심 인물들입니다.</p>
+<section class="group-section">
 
-    <div class="card-grid">
-      <div class="char-card">
-        <h3>김독자</h3>
-        <p>분석적 주인공 · 독자의 시점 정보</p>
-        <a href="character-detail.html#kimdokja" class="detail-btn">상세 보기</a>
-      </div>
+    <!-- ▣ 주인공 그룹 -->
+    <div class="group-card">
+        <h2>주인공 그룹</h2>
 
-      <div class="char-card">
-        <h3>유중혁</h3>
-        <p>회귀자 · 근접 전투 특화</p>
-        <a href="character-detail.html#yojung" class="detail-btn">상세 보기</a>
-      </div>
+        <div class="mini-card-container">
 
-      <div class="char-card">
-        <h3>이현성</h3>
-        <p>보호 스킬 · 치유 계열</p>
-        <a href="character-detail.html#lee_hs" class="detail-btn">상세 보기</a>
-      </div>
+            <a class="mini-person-card" href="character-detail.html#kimdokja">
+                <img src="images/kim.png.png">
+                <h3>김독자</h3>
+            </a>
 
-      <div class="char-card">
-        <h3>한수영</h3>
-        <p>근접 전투 · 적극적 조력자</p>
-        <a href="character-detail.html#han_sy" class="detail-btn">상세 보기</a>
-      </div>
+            <a class="mini-person-card" href="character-detail.html#yoojung">
+                <img src="images/yoo.png.png">
+                <h3>유중혁</h3>
+            </a>
 
-      <div class="char-card">
-        <h3>이지혜</h3>
-        <p>전투 보조 · 팀의 안정적 축</p>
-        <a href="character-detail.html#lee_jh" class="detail-btn">상세 보기</a>
-      </div>
+            <a class="mini-person-card" href="character-detail.html#leehyun">
+                <img src="images/Lee.png.png">
+                <h3>이현성</h3>
+            </a>
 
+            <a class="mini-person-card" href="character-detail.html#hansoo">
+                <img src="images/han.png.png">
+                <h3>한수영</h3>
+            </a>
+
+            <a class="mini-person-card" href="character-detail.html#leeji">
+                <img src="images/leegee.png.png">
+                <h3>이지혜</h3>
+            </a>
+
+        </div>
     </div>
-  </section>
 
-  <!-- 🟢 조력자 그룹 -->
-  <section class="group-section">
-    <h2>조력자 그룹</h2>
-    <p class="group-desc">주인공을 보조하고 시나리오 해결을 돕는 동료 인물들입니다.</p>
 
-    <div class="card-grid">
+    <!-- ▣ 조력자 그룹 -->
+    <div class="group-card">
+        <h2>조력자 그룹</h2>
 
-      <div class="char-card">
-        <h3>유상아</h3>
-        <p>지원 스킬 · 침착한 조력자</p>
-        <a href="character-detail.html#yo_sanga" class="detail-btn">상세 보기</a>
-      </div>
+        <div class="mini-card-container">
 
-      <div class="char-card">
-        <h3>신유승</h3>
-        <p>신체 강화 계열 · 활발함</p>
-        <a href="character-detail.html#shin_y" class="detail-btn">상세 보기</a>
-      </div>
+            <a class="mini-person-card" href="character-detail.html#yoosanga">
+                <img src="images/yoosang.png.png">
+                <h3>유상아</h3>
+            </a>
 
-      <div class="char-card">
-        <h3>이길영</h3>
-        <p>정신계 스킬 보유</p>
-        <a href="character-detail.html#lee_gy" class="detail-btn">상세 보기</a>
-      </div>
+            <a class="mini-person-card" href="character-detail.html#shinyuseung">
+                <img src="images/shinyoo.png.png">
+                <h3>신유승</h3>
+            </a>
 
-      <div class="char-card">
-        <h3>정희원</h3>
-        <p>방어형 조력자 · 팀 보호 담당</p>
-        <a href="character-detail.html#jung_hw" class="detail-btn">상세 보기</a>
-      </div>
+            <a class="mini-person-card" href="character-detail.html#leegilyoung">
+                <img src="images/leegil.png.png">
+                <h3>이길영</h3>
+            </a>
 
-      <div class="char-card">
-        <h3>곽필두</h3>
-        <p>거친 성격 · 의외의 활약 담당</p>
-        <a href="character-detail.html#gwak_pd" class="detail-btn">상세 보기</a>
-      </div>
+            <a class="mini-person-card" href="character-detail.html#jungheewon">
+                <img src="images/jung.png.png">
+                <h3>정희원</h3>
+            </a>
 
+        </div>
     </div>
-  </section>
 
-  <!-- 🔴 적대자 그룹 -->
-  <section class="group-section">
-    <h2>적대자 / 빌런 그룹</h2>
-    <p class="group-desc">시나리오 내 갈등을 유발하고 긴장감을 형성하는 인물들입니다.</p>
 
-    <div class="card-grid">
-      <div class="char-card danger">
-        <h3>한명오</h3>
-        <p>주요 적대자 · 혼란 유발</p>
-        <a href="character-detail.html#hanmo" class="detail-btn">상세 보기</a>
-      </div>
+    <!-- ▣ 적대자 그룹 -->
+    <div class="group-card">
+        <h2>적대자 그룹</h2>
+
+        <div class="mini-card-container">
+
+            <a class="mini-person-card" href="character-detail.html#gongpildu">
+                <img src="images/gong.png.png">
+                <h3>공필두</h3>
+            </a>
+
+            <a class="mini-person-card" href="character-detail.html#hanmyeongo">
+                <img src="images/janmeong.png.png">
+                <h3>한명오</h3>
+            </a>
+
+        </div>
     </div>
-  </section>
+
+</section>
 
 </body>
 </html>
